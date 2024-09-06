@@ -187,7 +187,7 @@ _fzf_comprun() {
 export BAT_THEME="Monokai Extended Bright"
 
 # ---- Eza (better ls) -----
-alias ls="eza -U -u -h -H --color=always --long --git --icons=always --no-user"
+alias ls="eza -a -U -u -h -H --show-symlinks --color=always --long --git --icons=always --no-user"
 
 
 # Generated for envman. Do not edit.
