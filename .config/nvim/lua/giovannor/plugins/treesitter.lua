@@ -36,7 +36,9 @@ return {
         "sql",
         "python",
         "rust",
-        "java"
+        "java",
+        "terraform",
+        "hcl"
       },
       incremental_selection = {
         enable = true,
