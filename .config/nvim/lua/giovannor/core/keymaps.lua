@@ -30,3 +30,4 @@ keymap.set({"n", "v"}, "<leader>d", [["_d]])
 keymap.set({"n", "v"}, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
 
+keymap.set('n', '<leader>bd', ':bd<CR>', { noremap = true, silent = true, desc = "Delete current buffer" })
