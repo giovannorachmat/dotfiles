@@ -99,6 +99,38 @@ return {
                     }
                 }
             })
+
+            opts = {
+                ensure_installed = {
+                    "ansible-lint",
+                    "ansible-language-server",
+                    "cfn-lint",
+                    "circleci-yaml-language-server",
+                    "docker-compose-language-service",
+                    "dockerfile-language-server",
+                    "gitlab-ci-ls",
+                    "jinja-lsp",
+                    "jq",
+                    "json-lsp",
+                    "jsonlint",
+                    "markdown-oxide",
+                    "markdownlint-cli2",
+                    "marksman",
+                    "prettierd",
+                    "ruff",
+                    "ruff-lsp",
+                    "shfmt",
+                    "snyk",
+                    "sonarlint-language-server",
+                    "sqlfluff",
+                    "sqlfmt",
+                    "terraform-ls",
+                    "tflint",
+                    "yaml-language-server",
+                    "yamlfmt",
+                    "yamllint",
+                }
+            }
         end
     }
 }
