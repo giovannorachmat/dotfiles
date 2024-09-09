@@ -78,6 +78,9 @@ plugins=(git docker docker-compose)
 
 # User configuration
 
+# fast-syntax-highlighting
+source ~/.config/f-sy-h/F-Sy-H.plugin.zsh
+
 # Starship prompt
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -95,15 +98,12 @@ source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# fast-syntax-highlighting
-source ~/.config/f-sy-h/F-Sy-H.plugin.zsh
-
 # History searches
 bindkey '^p' history-search-backward
 bindkey '^o' history-search-forward
 
 # History
-HISTSIZE=10000
+HISTSIZE=100000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -144,9 +144,11 @@ setopt hist_find_no_dups
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
 
 
 # Set up fzf key bindings and fuzzy completion
@@ -189,6 +191,8 @@ export BAT_THEME="Monokai Extended Bright"
 # ---- Eza (better ls) -----
 alias ls="eza -a -U -u -h -H --show-symlinks --color=always --long --git --icons=always --no-user"
 
+# alias Tmux to create a new session
+alias tn="tmux new -As '$(basename "$PWD")'"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
