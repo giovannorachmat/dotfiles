@@ -41,7 +41,7 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard = "unnamedplus" -- use system clipboard as default register
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
@@ -59,13 +59,13 @@ opt.swapfile = false
 opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
+opt.undolevels = 10000
 
 -- left 8 lines above and below when scrolling
-opt.scrolloff = 8
+opt.scrolloff = 12
 opt.signcolumn = "yes"
 
 -- set a column border
 opt.colorcolumn = "150"
 
-
-
+opt.confirm = true

@@ -5,6 +5,7 @@ return {
         require("hlchunk").setup({
             chunk = {
                 enable = true,
+                style = "#bac2de",
                 chars = {
                     horizontal_line = "─",
                     vertical_line = "│",
@@ -22,6 +23,10 @@ return {
                 },
                 delay = 0,
             },
+            line_num = {
+                enable = true,
+                style = "#b4befe",
+            }
         })
     end
 }

@@ -75,9 +75,54 @@ return {
                 capabilities = require('cmp_nvim_lsp').default_capabilities()
             })
 
-            -- These are just examples. Replace them with the language
-            -- servers you have installed in your system
-            require('lspconfig').gleam.setup({})
+            opts = {
+                servers = {
+                    ansiblels = {},
+                    dockerls = {},
+                    docker_compose_language_service = {},
+                    jsonls = {
+                      -- lazy-load schemastore when needed
+                        on_new_config = function(new_config)
+                            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+                            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+                        end,
+                        settings = {
+                            json = {
+                                format = {
+                                    enable = true,
+                                },
+                                validate = { enable = true },
+                            },
+                        },
+                    },
+                    ruff = {
+                        cmd_env = { RUFF_TRACE = "messages" },
+                        init_options = {
+                            settings = {
+                                logLevel = "error",
+                            },
+                        },
+                        keys = {
+                            {
+                                "<leader>co",
+                                LazyVim.lsp.action["source.organizeImports"],
+                                desc = "Organize Imports",
+                            },
+                        },
+                    },
+                    ruff_lsp = {
+                        keys = {
+                            {
+                                "<leader>co",
+                                LazyVim.lsp.action["source.organizeImports"],
+                                desc = "Organize Imports",
+                            },
+                        },
+                    },
+                    terraformls = {},
+                },
+            }
+
         end
     },
 
@@ -97,10 +142,7 @@ return {
                         package_pending = "➜",
                         package_uninstalled = "✗"
                     }
-                }
-            })
-
-            opts = {
+                },
                 ensure_installed = {
                     "ansible-lint",
                     "ansible-language-server",
@@ -130,7 +172,7 @@ return {
                     "yamlfmt",
                     "yamllint",
                 }
-            }
+            })
         end
     }
 }
