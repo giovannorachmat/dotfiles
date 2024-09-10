@@ -32,6 +32,3 @@ keymap.set("n", "<leader>Y", [["+Y]])
 
 keymap.set('n', '<leader>bd', ':bd<CR>', { noremap = true, silent = true, desc = "Delete current buffer" })
 
-keymap.set("n", "<leader>gb", LazyVim.lazygit.blame_line, { desc = "Git Blame Line" })
-
-keymap.set("n", "<leader>fT", function() LazyVim.terminal() end, { desc = "Terminal (cwd)" })
