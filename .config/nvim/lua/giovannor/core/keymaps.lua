@@ -21,14 +21,15 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
--- keeps last copied object in the register 
+-- keeps last copied object in the register
 keymap.set("x", "<leader>p", [["_dP]])
-keymap.set({"n", "v"}, "<leader>d", [["_d]])
+keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- next greatest remap ever : asbjornHaland
 -- yanked using system clipboard
-keymap.set({"n", "v"}, "<leader>y", [["+y]])
+keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
 
-keymap.set('n', '<leader>bd', ':bd<CR>', { noremap = true, silent = true, desc = "Delete current buffer" })
-
+-- Close buffer with <leader>bd
+keymap.set('n', '<leader>bd', ':bprevious<bar>bd #<CR>',
+    { noremap = true, silent = true, desc = "Delete current buffer" })
