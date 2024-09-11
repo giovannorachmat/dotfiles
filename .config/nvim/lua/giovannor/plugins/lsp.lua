@@ -45,15 +45,41 @@ return {
     {
         'neovim/nvim-lspconfig',
         cmd = 'LspInfo',
-        event = {'BufReadPre', 'BufNewFile'},
+        -- event = {'BufReadPre', 'BufNewFile'},
         dependencies = {
-            {'hrsh7th/cmp-nvim-lsp'},
+            'hrsh7th/cmp-nvim-lsp',
         },
         config = function()
             local lsp_zero = require('lsp-zero')
 
-            -- lsp_attach is where you enable features that only work
-            -- if there is a language server active in the file
+            -- Enable diagnostics
+            vim.diagnostic.config({
+                virtual_text = true,
+                signs = true,
+                update_in_insert = false,
+                underline = true,
+                severity_sort = true,
+                float = {
+                    focusable = false,
+                    style = 'minimal',
+                    border = 'rounded',
+                    source = 'always',
+                    header = '',
+                    prefix = '',
+                },
+            })
+
+            -- Show line diagnostics automatically in hover window
+            vim.o.updatetime = 0
+            vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+            -- Autoformat on save
+            vim.cmd [[augroup Format]]
+            vim.cmd [[autocmd!]]
+            vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+            vim.cmd [[augroup END]]
+
+            -- lsp_attach function
             local lsp_attach = function(client, bufnr)
                 local opts = {buffer = bufnr}
 
@@ -64,9 +90,11 @@ return {
                 vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
                 vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
                 vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-                vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-                vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-                vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+                vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+                vim.keymap.set({'n', 'x'}, '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+                vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+                -- You can add more custom logic here if needed
             end
 
             lsp_zero.extend_lspconfig({
@@ -117,9 +145,11 @@ return {
         "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
+            'stevearc/conform.nvim',
         },
         config = function()
             local mason = require("mason")
+            local mason_lspconfig = require("mason-lspconfig")
 
             mason.setup({
                 ui = {
@@ -157,6 +187,22 @@ return {
                     "yaml-language-server",
                     "yamlfmt",
                     "yamllint",
+                }
+            })
+
+            mason_lspconfig.setup({
+                ensure_installed = {
+                    "ansiblels",
+                    "dockerls",
+                    "docker_compose_language_service",
+                    "jinja_lsp",
+                    "jsonls",
+                    "lua_ls",
+                    "markdown_oxide",
+                    "ruff",
+                    "ruff_lsp",
+                    "terraformls",
+                    "yamlls",
                 }
             })
         end
