@@ -28,13 +28,13 @@ return {
                     ['<C-Space>'] = cmp.mapping.complete(),
                     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-                    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+                    ['<C-p>'] = cmp.mapping.select_prev_item(),
+                    ['<C-n>'] = cmp.mapping.select_next_item(),
                     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 }),
                 snippet = {
                     expand = function(args)
-                        vim.snippet.expand(args.body)
+                        require('luasnip').lsp_expand(args.body)
                     end,
                 },
             })
@@ -75,54 +75,40 @@ return {
                 capabilities = require('cmp_nvim_lsp').default_capabilities()
             })
 
-            opts = {
-                servers = {
-                    ansiblels = {},
-                    dockerls = {},
-                    docker_compose_language_service = {},
-                    jsonls = {
-                      -- lazy-load schemastore when needed
-                        on_new_config = function(new_config)
-                            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-                            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-                        end,
-                        settings = {
-                            json = {
-                                format = {
-                                    enable = true,
-                                },
-                                validate = { enable = true },
+            local servers = {
+                ansiblels = {},
+                dockerls = {},
+                docker_compose_language_service = {},
+                jsonls = {
+                    -- lazy-load schemastore when needed
+                    on_new_config = function(new_config)
+                        new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+                        vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+                    end,
+                    settings = {
+                        json = {
+                            format = {
+                                enable = true,
                             },
+                            validate = { enable = true },
                         },
                     },
-                    ruff = {
-                        cmd_env = { RUFF_TRACE = "messages" },
-                        init_options = {
-                            settings = {
-                                logLevel = "error",
-                            },
-                        },
-                        keys = {
-                            {
-                                "<leader>co",
-                                LazyVim.lsp.action["source.organizeImports"],
-                                desc = "Organize Imports",
-                            },
-                        },
-                    },
-                    ruff_lsp = {
-                        keys = {
-                            {
-                                "<leader>co",
-                                LazyVim.lsp.action["source.organizeImports"],
-                                desc = "Organize Imports",
-                            },
-                        },
-                    },
-                    terraformls = {},
                 },
+                ruff = {
+                    cmd_env = { RUFF_TRACE = "messages" },
+                    init_options = {
+                        settings = {
+                            logLevel = "error",
+                        },
+                    },
+                },
+                ruff_lsp = {},
+                terraformls = {},
             }
 
+            for server, server_opts in pairs(servers) do
+                lsp_zero.configure(server, server_opts)
+            end
         end
     },
 
