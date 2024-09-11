@@ -23,7 +23,7 @@ return {
       dashboard.button("e", "  Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
       dashboard.button("f", "󰱼  Find File", "<cmd>Telescope find_files<CR>"),
       dashboard.button("g", "  Find Word", "<cmd>Telescope live_grep<CR>"),
-      dashboard.button("s", "󰁯  Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
+      dashboard.button("s", "󰁯  Restore Session For Current Directory", "<cmd>lua require('persistence').load()<CR>"),
       dashboard.button("q", "  Quit NVIM", "<cmd>qa<CR>"),
     }
 
