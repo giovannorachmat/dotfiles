@@ -1,6 +1,6 @@
 -- Credits to Josean
 -- https://www.josean.com/posts/how-to-setup-neovim-2024
- 
+
 vim.cmd("let g:netrw_liststyle = 3")
 local opt = vim.opt -- for conciseness
 
@@ -9,13 +9,13 @@ opt.guicursor = ""
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
-opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+opt.number = true         -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
-opt.tabstop = 4 -- 4 spaces for tabs
-opt.softtabstop = 4 -- 4 spaces for soft tab stops
-opt.shiftwidth = 4 -- 4 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
+opt.tabstop = 4       -- 4 spaces for tabs
+opt.softtabstop = 4   -- 4 spaces for soft tab stops
+opt.shiftwidth = 4    -- 4 spaces for indent width
+opt.expandtab = true  -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 opt.smartindent = true
 
@@ -24,7 +24,7 @@ opt.wrap = false -- disable line wrapping
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
@@ -35,7 +35,7 @@ opt.cursorline = true -- highlight the current cursor line
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.signcolumn = "yes"  -- show sign column so that text doesn't shift
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
@@ -69,3 +69,5 @@ opt.signcolumn = "yes"
 opt.colorcolumn = "150"
 
 opt.confirm = true
+
+vim.bo.commentstring = '-- %s'
