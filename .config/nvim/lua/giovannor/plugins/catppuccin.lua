@@ -12,7 +12,7 @@ return {
                     nvimtree = true,
                 },
                 custom_highlights = {
-                    LineNr = { fg = "#6c7086" },
+                    LineNr = { fg = "#a6adc8" },
                 },
             })
             vim.cmd.colorscheme "catppuccin-mocha"
