@@ -1,6 +1,7 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v4.x',
+    lazy = false,
     dependencies = {
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
