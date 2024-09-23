@@ -1,8 +1,7 @@
 return {
-    "folke/which-key.nvim",
-    lazy = false,
-    opts = {
-        preset = "modern",
-        delay = 0,
-    }
+	"folke/which-key.nvim",
+	lazy = false,
+	opts = {
+		delay = 0,
+	},
 }

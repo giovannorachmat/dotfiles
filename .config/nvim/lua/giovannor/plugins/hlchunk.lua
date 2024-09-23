@@ -25,7 +25,7 @@ return {
             },
             line_num = {
                 enable = true,
-                style = "#b4befe",
+                style = "#cdd6f4",
             }
         })
     end
