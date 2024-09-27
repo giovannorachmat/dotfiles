@@ -31,5 +31,9 @@ keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Close buffer with <leader>bd
-keymap.set('n', '<leader>bd', ':bprevious<bar>bd #<CR>',
-    { noremap = true, silent = true, desc = "Delete current buffer" })
+keymap.set(
+	"n",
+	"<leader>bd",
+	":bprevious<bar>bd #<CR>",
+	{ noremap = true, silent = true, desc = "Delete current buffer" }
+)
