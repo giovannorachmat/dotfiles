@@ -1,6 +1,7 @@
 return {
 	"mg979/vim-visual-multi",
 	branch = "master",
+	lazy = true,
 	config = function()
 		vim.g.VM_maps = {
 			["Add Cursor Up"] = "<C-S-Up>",
