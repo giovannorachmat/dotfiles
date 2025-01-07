@@ -147,6 +147,9 @@ if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then .
 if [ -f '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
 
+alias gcal="gcloud auth login giovanno.rachmat@oyindonesia.com --project data-298904"
+alias gcaal=" gcloud auth application-default login --account giovanno.rachmat@oyindonesia.com --project data-298904"
+
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -185,7 +188,7 @@ _fzf_comprun() {
 export BAT_THEME="Monokai Extended Bright"
 
 # ---- Eza (better ls) -----
-alias ls="eza -a -U -u -h -H --show-symlinks --color=always --long --git --icons=always --no-user"
+alias ls="eza -a -h --color=always --long --git --icons=always --no-user --no-permissions --no-filesize"
 
 # alias Tmux to create a new session
 alias tn="tmux new -As '$(basename "$PWD")'"
