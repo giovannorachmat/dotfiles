@@ -1,6 +1,7 @@
 return {
-  'echasnovski/mini.nvim',
-  version = '*',
-  lazy = true,
-  dependencies = {},
+	"echasnovski/mini.ai",
+	"echasnovski/mini.surround",
+	"echasnovski/mini.pairs",
+	"echasnovski/mini.operators",
+	"echasnovski/mini.bracketed",
 }
