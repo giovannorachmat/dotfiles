@@ -188,7 +188,7 @@ _fzf_comprun() {
 export BAT_THEME="Monokai Extended Bright"
 
 # ---- Eza (better ls) -----
-alias ls="eza -a -h --color=always --long --git --icons=always --no-user --no-permissions --no-filesize"
+alias ls="eza -a -h --color=always --long --git -T -L 1 --icons=always --no-user --no-permissions --no-filesize"
 
 # alias Tmux to create a new session
 alias tn="tmux new -As '$(basename "$PWD")'"
