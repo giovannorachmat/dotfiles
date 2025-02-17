@@ -1,0 +1,5 @@
+--target=~/.config
+--ignore=.stowrc
+--ignore=.zcompdump
+--ignore=.zprofile
+--ignore=DS_Store

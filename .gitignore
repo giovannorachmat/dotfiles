@@ -162,3 +162,7 @@ cython_debug/
 .idea/
 
 lazy-lock.json
+
+# zsh
+.zcompdump
+.zprofile
