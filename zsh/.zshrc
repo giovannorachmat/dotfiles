@@ -34,9 +34,6 @@ ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
 # Zsh Plugins
 # ======================
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
-typeset -gA ZSH_HIGHLIGHT_STYLES
-
 # fast-syntax-highlighting
 source ~/.config/f-sy-h/F-Sy-H.plugin.zsh
 
@@ -63,11 +60,14 @@ bindkey '^o' history-search-forward
 # Aliases
 # ======================
 
-# Move up >1 directories
+# Move up >=1 directories
 alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
 alias ........="cd ../../../.."
+alias home="cd ~"
+alias pwd="echo $PWD"
+alias cwd="echo $CWD"
 
 # Check directories
 alias ls..="ls .."
@@ -90,6 +90,10 @@ if [ -f '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '
 
 alias gcal="gcloud auth login giovanno.rachmat@oyindonesia.com --project data-298904"
 alias gcaal="gcloud auth application-default login --account giovanno.rachmat@oyindonesia.com --project data-298904"
+alias vmdevstart="gcloud compute instances start bi-dev --zone=asia-southeast2-a"
+alias vmdevstop="gcloud compute instances stop bi-dev --zone=asia-southeast2-a"
+alias vmexpstart="gcloud compute instances start bi-experimental --zone=asia-southeast2-a"
+alias vmexpstop="gcloud compute instances stop bi-experimental --zone=asia-southeast2-a"
 
 # ======================
 # FZF Customizations
