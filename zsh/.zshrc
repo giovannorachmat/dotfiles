@@ -3,6 +3,7 @@
 # ======================
 
 # Set up PATH
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 export TERM=xterm-256color
 export ZDOTDIR="$HOME/.config/zsh"
@@ -40,17 +41,17 @@ typeset -gA ZSH_HIGHLIGHT_STYLES
 source ~/.config/f-sy-h/F-Sy-H.plugin.zsh
 
 # zsh-autocomplete
-source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # zsh-autosuggestions
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ======================
 # History Configuration
 # ======================
 
 HISTSIZE=100000
-HISTFILE="$HOME/cache/zsh/.zsh_history"
+HISTFILE="$HOME/.cache/zsh/.zsh_history"
 SAVEHIST=$HISTSIZE
 setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_ignore_dups hist_find_no_dups
 
@@ -61,6 +62,16 @@ bindkey '^o' history-search-forward
 # ======================
 # Aliases
 # ======================
+
+# Move up >1 directories
+alias ..="cd .."
+alias ....="cd ../.."
+alias ......="cd ../../.."
+alias ........="cd ../../../.."
+
+# Check directories
+alias ls..="ls .."
+alias ls....="ls ../.."
 
 # Eza (better ls)
 alias ls="eza -a -h --color=always --long --git -T -L 1 --icons=always --no-user --no-permissions --no-filesize"
