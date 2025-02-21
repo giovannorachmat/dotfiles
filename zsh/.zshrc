@@ -6,7 +6,6 @@
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 export TERM=xterm-256color
-export ZDOTDIR="$HOME/.config/zsh"
 
 # Language and editor settings
 export LANG=en_US.UTF-8
@@ -24,6 +23,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+autoload -Uz compinit; compinit -C
 
 # ======================
 # Zsh Completions
