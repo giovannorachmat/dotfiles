@@ -14,7 +14,7 @@ return {
 					left_bottom = "└",
 					right_arrow = "─",
 				},
-				delay = 0,
+				delay = 1,
 			},
 			indent = {
 				enable = true,

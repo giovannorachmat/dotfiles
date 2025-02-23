@@ -1,5 +1,5 @@
 return {
 	"tpope/vim-surround",
-	lazy = true,
+	lazy = false,
 	event = { "BufReadPre", "BufNewFile" },
 }
