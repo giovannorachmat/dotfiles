@@ -11,18 +11,10 @@ export TERM=xterm-256color
 export LANG=en_US.UTF-8
 
 # Starship prompt
-eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # bat theme
 export BAT_THEME="Monokai Extended Bright"
-
-# FZF settings
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 autoload -Uz compinit; compinit -C
 
@@ -83,6 +75,12 @@ alias tn="tmux new -As '$(basename "$PWD")'"
 # Terraform
 alias tf="terraform"
 
+# Git
+alias glp='git log --pretty=format:"%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s"'
+alias gdf='git diff --pretty="" --name-only origin/master'
+alias gcb='git checkout -b'
+alias gc='git checkout'
+
 # Google Cloud SDK
 if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
@@ -99,6 +97,14 @@ alias vmexpstop="gcloud compute instances stop bi-experimental --zone=asia-south
 # ======================
 # FZF Customizations
 # ======================
+eval "$(fzf --zsh)"
+
+# settings
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 _fzf_compgen_path() {
   fd --hidden --exclude .git . "$1"
@@ -126,3 +132,5 @@ _fzf_comprun() {
 
 # envman
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+eval "$(starship init zsh)"
