@@ -166,3 +166,7 @@ lazy-lock.json
 # zsh
 .zcompdump
 .zprofile
+.zshenv
+
+# tmux
+.tmux/
