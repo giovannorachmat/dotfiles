@@ -133,4 +133,5 @@ _fzf_comprun() {
 # envman
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
