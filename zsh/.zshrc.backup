@@ -54,17 +54,14 @@ bindkey '^o' history-search-forward
 # ======================
 
 # Move up >=1 directories
+alias .="cd .."
+alias .2="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
+alias .5="cd ../../../../.."
 alias home="cd ~"
 alias pwd="echo $PWD"
 alias cwd="echo $CWD"
-alias ..="cd .."
-alias ..2="cd ../.."
-alias ..3="cd ../../.."
-alias ..4="cd ../../../.."
-alias ..5="cd ../../../../.."
-
-alias yz='yazi'
-alias ze='zellij'
 
 # Check directories
 alias ls..="ls .."
@@ -83,10 +80,8 @@ alias gcb='git checkout -b'
 alias gc='git checkout'
 
 # Google Cloud SDK
-# The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/oygiovannorachmat/completion.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
 
 alias gcal="gcloud auth login giovanno.rachmat@oyindonesia.com --project data-298904"
 alias gcaal="gcloud auth application-default login --account giovanno.rachmat@oyindonesia.com --project data-298904"
@@ -94,7 +89,6 @@ alias vmdevstart="gcloud compute instances start bi-dev --zone=asia-southeast2-a
 alias vmdevstop="gcloud compute instances stop bi-dev --zone=asia-southeast2-a"
 alias vmexpstart="gcloud compute instances start bi-experimental --zone=asia-southeast2-a"
 alias vmexpstop="gcloud compute instances stop bi-experimental --zone=asia-southeast2-a"
-alias awsdev="aws ecr get-login-password --region ap-southeast-3 | docker login --username AWS --password-stdin 862498237182.dkr.ecr.ap-southeast-3.amazonaws.com/oy-data-engineering-airflow-dev:latest"
 
 # ======================
 # FZF Customizations
@@ -137,4 +131,3 @@ _fzf_comprun() {
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
-

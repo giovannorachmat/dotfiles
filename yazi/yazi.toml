@@ -1,0 +1,8 @@
+[manager]
+show_hidden = true
+ratio = [1, 3, 4]
+sort_by = "mtime"
+linemode = "size"
+show_symlink = true
+
+[preview]
