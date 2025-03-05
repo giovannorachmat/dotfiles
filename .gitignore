@@ -167,6 +167,8 @@ lazy-lock.json
 .zcompdump
 .zprofile
 .zshenv
+.zsh_sessions/
+.zshrc.backup
 
 # tmux
-.tmux/
+tmux/plugins/

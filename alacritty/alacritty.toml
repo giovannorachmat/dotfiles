@@ -1,0 +1,26 @@
+[env]
+TERM = "xterm-256color"
+
+[general]
+live_config_reload = true
+import = ["~/.config/alacritty/themes/catppuccin-mocha.toml"]
+
+[font]
+size = 20.0
+normal.family = "0xProto Nerd Font"
+bold.family = "0xProto Nerd Font"
+italic.family = "0xProto Nerd Font"
+bold_italic.family = "0xProto Nerd Font"
+
+[window]
+decorations = "Full"
+startup_mode = "Maximized"
+level = "AlwaysOnTop"
+blur = true
+opacity = 0.8
+
+[selection]
+save_to_clipboard = true
+
+[terminal]
+shell = "zsh"

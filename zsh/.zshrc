@@ -5,7 +5,10 @@
 # Set up PATH
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
-export TERM=xterm-256color
+export TERM="xterm-256color"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
 
 # Language and editor settings
 export LANG=en_US.UTF-8
@@ -134,7 +137,4 @@ _fzf_comprun() {
 
 # envman
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(starship init zsh)"
 
