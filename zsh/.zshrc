@@ -44,6 +44,8 @@ source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+source $XDG_CONFIG_HOME/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 # ======================
 # gcloud CLI
 # ======================
