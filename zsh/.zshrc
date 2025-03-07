@@ -1,34 +1,40 @@
 # ======================
-# Environment Variables
+# General ZSH settings
 # ======================
-# Set up PATH
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+# Set env vars
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export TERM=xterm-256color
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Language and editor settings
 export LANG=en_US.UTF-8
 
-# Starship prompt
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-
-# bat theme
-export BAT_THEME="Monokai Extended Bright"
-
-autoload -Uz compinit; compinit -C
-
-# ======================
-# Zsh Completions
-# ======================
+# History configuration
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
+HISTFILE="$HOME/.cache/zsh/.zsh_history"
 ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
+setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_ignore_dups hist_find_no_dups
+
+# Compdump
+autoload -Uz compinit; compinit -C -d $ZSH_COMPDUMP
+
+# Bind keys for history search
+bindkey '^p' history-search-backward
+bindkey '^o' history-search-forward
+
+# Set alias from .aliasrc
+if [[ -r ~/$XDG_CONFIG_HOME/zsh/.aliasrc ]]; then
+  . $XDG_CONFIG_HOME/zsh/.aliasrc
+fi
 
 # ======================
-# Zsh Plugins
+# Brew
 # ======================
+# prompt
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# ======================
+# Syntax Highlighting
+# ======================
 # fast-syntax-highlighting
 source $XDG_CONFIG_HOME/f-sy-h/F-Sy-H.plugin.zsh
 
@@ -39,66 +45,20 @@ source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ======================
-# History Configuration
+# gcloud CLI
 # ======================
+if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
-HISTSIZE=100000
-HISTFILE="$HOME/.cache/zsh/.zsh_history"
-SAVEHIST=$HISTSIZE
-setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_ignore_dups hist_find_no_dups
-
-# Bind keys for history search
-bindkey '^p' history-search-backward
-bindkey '^o' history-search-forward
-
-# ======================
-# Aliases
-# ======================
-
-# Move up >=1 directories
-alias ..="cd .."
-alias ....="cd ../.."
-alias ......="cd ../../.."
-alias ........="cd ../../../.."
-alias home="cd ~"
-alias pwd="echo $PWD"
-alias cwd="echo $CWD"
-
-# Check directories
-alias ls..="ls .."
-alias ls....="ls ../.."
-
-# Eza (better ls)
-alias ls="eza -a -h --color=always --long --git -T -L 1 --icons=always --no-user --no-permissions --no-filesize"
-
-# Tmux
-alias tn="tmux new -As '$(basename "$PWD")'"
-
-# Terraform
-alias tf="terraform"
-
-# Git
-alias glp='git log --pretty=format:"%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s"'
-alias gdf='git diff --pretty="" --name-only origin/master'
-alias gcb='git checkout -b'
-alias gc='git checkout'
-
-# Google Cloud SDK
-if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
-if [ -f '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
-
-alias gcal="gcloud auth login giovanno.rachmat@oyindonesia.com --project data-298904"
-alias gcaal="gcloud auth application-default login --account giovanno.rachmat@oyindonesia.com --project data-298904"
-alias vmdevstart="gcloud compute instances start bi-dev --zone=asia-southeast2-a"
-alias vmdevstop="gcloud compute instances stop bi-dev --zone=asia-southeast2-a"
-alias vmexpstart="gcloud compute instances start bi-experimental --zone=asia-southeast2-a"
-alias vmexpstop="gcloud compute instances stop bi-experimental --zone=asia-southeast2-a"
+# Take alias from .gcloudalias
+if [[ -r $HOME/.gcloudalias ]]; then
+  . $HOME/.gcloudalias
+fi
 
 # ======================
 # FZF Customizations
 # ======================
+# prompt
 eval "$(fzf --zsh)"
 
 # settings
@@ -127,3 +87,23 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
+
+# Eza (better ls)
+alias ls="eza -a -h --color=always --long --git -T -L 1 --icons=always --no-user --no-permissions --no-filesize"
+
+# bat theme
+export BAT_THEME="Monokai Extended Bright"
+
+# ======================
+# Starship
+# ======================
+# config path
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+# prompt
+eval "$(starship init zsh)"
+
+# ======================
+# Neofetch
+# ======================
+# prompt
+neofetch

@@ -164,10 +164,9 @@ cython_debug/
 lazy-lock.json
 
 # zsh
-.zcompdump
-.zprofile
-.zshenv
+zsh/.zcompdump
 zsh/.zsh_sessions
+.zprofile
 
 # tmux
 .tmux/
