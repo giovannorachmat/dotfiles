@@ -4,7 +4,7 @@
 
 # Set up PATH
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/opt/homebrew/bin/homebrew"
 export TERM=xterm-256color
 
 # Language and editor settings
@@ -28,7 +28,7 @@ ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
 # ======================
 
 # fast-syntax-highlighting
-source ~/.config/f-sy-h/F-Sy-H.plugin.zsh
+source $XDG_CONFIG_HOME/F-Sy-H.plugin.zsh
 
 # zsh-autocomplete
 source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
