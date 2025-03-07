@@ -1,0 +1,34 @@
+[env]
+TERM = "xterm-256color"
+
+[general]
+live_config_reload = true
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+working_directory = "~/git"
+
+[font]
+size = 20.0
+normal = { family = "SFMono Nerd Font", style = "Regular" }
+bold = { family = "SFMono Nerd Font", style = "Semi Bold" }
+italic = { family = "SFMono Nerd Font", style = "Regular Italic" }
+bold_italic = { family = "SFMono Nerd Font", style = "Semi Bold Italic" }
+
+[window]
+decorations = "Full"
+startup_mode = "Maximized"
+level = "AlwaysOnTop"
+blur = true
+opacity = 0.8
+dynamic_title = true
+option_as_alt = "Both"
+
+[scrolling]
+history = 100000
+
+[mouse]
+
+[selection]
+save_to_clipboard = true
+
+[terminal]
+shell = "/opt/homebrew/bin/zsh"
