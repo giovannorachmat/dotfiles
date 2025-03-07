@@ -1,16 +1,18 @@
 # ======================
 # Environment Variables
 # ======================
-
 # Set up PATH
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/opt/homebrew/bin/homebrew"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 export TERM=xterm-256color
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Language and editor settings
 export LANG=en_US.UTF-8
 
 # Starship prompt
+eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # bat theme
@@ -28,7 +30,7 @@ ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
 # ======================
 
 # fast-syntax-highlighting
-source $XDG_CONFIG_HOME/F-Sy-H.plugin.zsh
+source $XDG_CONFIG_HOME/f-sy-h/F-Sy-H.plugin.zsh
 
 # zsh-autocomplete
 source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -125,13 +127,3 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
-
-# ======================
-# Miscellaneous
-# ======================
-
-# envman
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(starship init zsh)"
