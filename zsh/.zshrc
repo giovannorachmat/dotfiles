@@ -27,12 +27,6 @@ if [[ -r ~/$XDG_CONFIG_HOME/zsh/.aliasrc ]]; then
 fi
 
 # ======================
-# Brew
-# ======================
-# prompt
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# ======================
 # Syntax Highlighting
 # ======================
 # fast-syntax-highlighting
