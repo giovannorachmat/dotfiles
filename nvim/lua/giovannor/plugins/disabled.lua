@@ -1,4 +1,5 @@
 return {
+	{ "nvim-neo-tree/neo-tree.nvim", enabled = false },
 	{ "aadv1k/gdoc.vim", enabled = false },
 	{ "kristijanhusak/vim-dadbod-completion", enabled = false },
 	{ "kristijanhusak/vim-dadbod-ui", enabled = false },
