@@ -6,6 +6,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
+export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
 # History configuration
 HISTSIZE=100000
@@ -22,7 +23,7 @@ bindkey '^p' history-search-backward
 bindkey '^o' history-search-forward
 
 # Set alias from .aliasrc
-if [[ -r ~/$XDG_CONFIG_HOME/zsh/.aliasrc ]]; then
+if [[ -r $XDG_CONFIG_HOME/zsh/.aliasrc ]]; then
   . $XDG_CONFIG_HOME/zsh/.aliasrc
 fi
 

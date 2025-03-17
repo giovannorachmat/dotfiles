@@ -15,6 +15,6 @@ alias tf="terraform"
 
 # Git
 alias glp='git log --pretty=format:"%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s"'
-alias gdf='git diff --pretty="" --name-only origin/master'
-alias gcb='git checkout -b'
+alias gdiff='git diff --pretty="" --name-only origin/master'
+alias gcnb='git checkout -b'
 alias gc='git checkout'
