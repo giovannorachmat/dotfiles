@@ -1,8 +1,0 @@
-return {
-  "mbbill/undotree",
-  lazy = false,
-  config = function()
-    local keymap = vim.keymap
-    keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
-  end,
-}

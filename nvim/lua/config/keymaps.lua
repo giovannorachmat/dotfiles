@@ -37,3 +37,10 @@ keymap.set(
 	":bprevious<bar>bd #<CR>",
 	{ noremap = true, silent = true, desc = "Delete current buffer" }
 )
+
+keymap.set(
+	"n",
+	"<leader>gb",
+	":<C-u>call gitblame#echo()<CR>",
+	{ noremap = true, silent = true, desc = "Toggle Git Blame" }
+)

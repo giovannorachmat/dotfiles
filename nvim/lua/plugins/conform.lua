@@ -1,12 +1,11 @@
 return {
 	"stevearc/conform.nvim",
 	lazy = false,
+	optional = false,
 	event = { "BufReadPre", "BufNewFile", "BufWritePre" },
 	cmd = { "ConformInfo" },
-	config = function()
-		local conform = require("conform")
-
-		conform.setup({
+	opts = function()
+		local opts = {
 			formatters_by_ft = {
 				docker = { "dockerfile-language-server, docker-compose-language-server" },
 				hcl = { "hcl" },
@@ -25,12 +24,14 @@ return {
 				sql = { "sqlfmt" },
 				terraform = { "terraform_fmt" },
 			},
-			format_on_save = {
+			default_format_opts = {
 				timeout_ms = 2500,
 				lsp_format = "fallback",
+				async = false,
+				quiet = false,
 			},
-		})
+		}
 
-		conform.format({ async = true, lsp_format = "fallback" })
+		return opts
 	end,
 }
