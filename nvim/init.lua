@@ -1,2 +1,1 @@
-require("giovannor.core")
-require("giovannor.lazy")
+require("config.lazy")

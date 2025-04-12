@@ -16,8 +16,8 @@ config = {
 	window_decorations = "INTEGRATED_BUTTONS|RESIZE",
 
 	scrollback_lines = 10000,
-	macos_window_background_blur = 5,
-	window_background_opacity = 0.9,
+	-- macos_window_background_blur = 5,
+	-- window_background_opacity = 0.9,
 }
 
 return config

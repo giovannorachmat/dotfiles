@@ -2,11 +2,12 @@
 # General ZSH settings
 # ======================
 # Set env vars
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:opt/homebrew/bin/brew"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+export GCP_ZONE="asia-southeast2-a"
 
 # History configuration
 HISTSIZE=100000
@@ -92,6 +93,53 @@ alias ls="eza -a -h --color=always --long --git -T -L 1 --icons=always --no-user
 export BAT_THEME="Monokai Extended Bright"
 
 # ======================
+# Neovim Config Picker (nvims)
+# ======================
+# taken from Elijah Manor
+# https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
+
+function nvims() {
+  items=("default" "LazyVim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=nvim-$config nvim $@
+}
+
+
+# ======================
+# GCP VM Instance Start/Stop
+# ======================
+# Shamelessly copied from the function above
+function vmstart() {
+  items=("bi-experimental" "bi-dev")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Start GCP VM instance" --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  gcloud compute instances start $config $@ --zone=$GCP_ZONE
+}
+
+function vmstop() {
+  items=("bi-experimental" "bi-dev")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Stop GCP VM instance" --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  gcloud compute instances stop $config $@ --zone=$GCP_ZONE
+}
+
+# ======================
 # Starship
 # ======================
 # config path
@@ -103,4 +151,5 @@ eval "$(starship init zsh)"
 # Neofetch
 # ======================
 # prompt
-neofetch
+fastfetch
+
