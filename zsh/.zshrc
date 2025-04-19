@@ -98,6 +98,8 @@ export BAT_THEME="Monokai Extended Bright"
 # taken from Elijah Manor
 # https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
 
+alias lazyvim="NVIM_APPNAME=nvim-LazyVim nvim"
+
 function nvims() {
   items=("default" "LazyVim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
