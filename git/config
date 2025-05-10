@@ -1,0 +1,59 @@
+[user]
+  name = Giovanno Rachmat
+  email = giovanno.rachmat@oyindonesia.com
+
+[core]
+  autocrlf = input
+  compression = 9
+  whitespace = error
+  preloadindex = true
+
+[blame]
+  coloring = highlightRecent
+  date = relative
+  
+[push]
+  autoSetupRemote = true
+  default = current
+  followTags = true
+
+[pull]
+  default = current
+  rebase = true
+
+[rebase]
+  autoStash = true
+  missingCommitsCheck = warn
+
+[advice]
+  addEmptyPathspec = false
+  pushNonFastForward = false
+  statusHints = false
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+
+[url "git@github.com:oyindonesia/"]
+  insteadOf = "oy:"
+
+[init]
+  master
+
+[status]
+  branch = true
+  short = true
+  showStash = true
+  showUntrackedFiles = all
+
+[log]
+  abbrevCommit = true
+  graphColors = blue,yellow,cyan,magenta,green,red
+
+[interactive]
+  singlekey = true
+
+[color "decorate"]
+  HEAD = red
+  branch = blue
+  tag = yellow
+  remoteBranch = magenta

@@ -4,4 +4,5 @@ return {
 	{ "flash.nvim", enabled = false },
 	{ "mini.indentscope", enabled = false },
 	{ "neo-tree.nvim", enabled = false },
+	{ "diagram.nvim", enabled = false },
 }

@@ -142,6 +142,35 @@ function vmstop() {
 }
 
 # ======================
+# git
+# ======================
+alias gs="git status"
+alias gap="git add --patch"
+alias gp="git push"
+alias gu="git pull"
+alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n"'
+alias gb="git branch"
+alias gi="git init"
+alias gcl="git clone"
+alias gc="git commit"
+alias gnb="git checkout -b"
+alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' ' --pretty=''"
+alias gc="git checkout"
+
+# ======================
+# kubernetes
+# ======================
+# kubectl
+alias k="kubectl"
+alias kap="kubectl apply"
+alias kdl="kubectl delete"
+alias kctx='kubectl config use-context $(kubectl config get-contexts -o name | fzf --height 40% --layout=reverse --border --exit-0)'
+
+# kustomize
+alias kz="kustomize"
+alias kzb="kustomize build"
+
+# ======================
 # Starship
 # ======================
 # config path
