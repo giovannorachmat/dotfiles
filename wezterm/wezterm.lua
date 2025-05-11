@@ -6,7 +6,7 @@ config = {
 	enable_kitty_graphics = true,
 
 	color_scheme = "Catppuccin Mocha",
-	font_size = 21.0,
+	font_size = 16.0,
 
 	max_fps = 120,
 	cursor_blink_rate = 0,
