@@ -1,8 +1,22 @@
 # ======================
+# Brew
+# ======================
+# Detect OS and set Brew path dynamically
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux (including cachyOS)
+  BREW_PATH="/home/linuxbrew/.linuxbrew"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
+  BREW_PATH="/opt/homebrew"
+fi
+
+eval "$($BREW_PATH/bin/brew shellenv)"
+
+# ======================
 # General ZSH settings
 # ======================
 # Set env vars
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:opt/homebrew/bin/brew"
+export PATH="$HOME/bin:$HOME/.local/bin:$BREW_PATH/bin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
@@ -184,3 +198,8 @@ eval "$(starship init zsh)"
 # prompt
 fastfetch
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/giovannor/google-cloud-sdk/path.zsh.inc' ]; then . '/home/giovannor/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/giovannor/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/giovannor/google-cloud-sdk/completion.zsh.inc'; fi

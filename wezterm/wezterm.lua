@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 config = {
 	term = "xterm-kitty",
@@ -8,7 +9,7 @@ config = {
 	color_scheme = "Catppuccin Mocha",
 	font_size = 16.0,
 
-	max_fps = 120,
+	max_fps = 165,
 	cursor_blink_rate = 0,
 
 	enable_tab_bar = false,
@@ -16,8 +17,23 @@ config = {
 	window_decorations = "INTEGRATED_BUTTONS|RESIZE",
 
 	scrollback_lines = 10000,
-	-- macos_window_background_blur = 5,
-	-- window_background_opacity = 0.9,
+	-- macos_window_background_blur = true,
+	-- window_background_opacity = 0.8,
+	-- text_background_opacity = 0.6,
+}
+
+config.keys = {
+	-- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
+	{
+		key = "LeftArrow",
+		mods = "OPT",
+		action = act.SendKey({ key = "b", mods = "OPT" }),
+	},
+	{
+		key = "RightArrow",
+		mods = "OPT",
+		action = act.SendKey({ key = "f", mods = "OPT" }),
+	},
 }
 
 return config

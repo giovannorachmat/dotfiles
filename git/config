@@ -1,6 +1,14 @@
 [user]
-  name = Giovanno Rachmat
+  name = OY! Giovanno Rachmat
   email = giovanno.rachmat@oyindonesia.com
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 
 [core]
   autocrlf = input
