@@ -23,39 +23,39 @@ return {
 	-- 		vim.cmd.colorscheme("everforest")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"eldritch-theme/eldritch.nvim",
-	-- 	lazy = false,
-	-- 	name = "eldritch",
-	-- 	config = function()
-	-- 		require("eldritch").setup({
-	-- 			transparent = true,
-	-- 			terminal_colors = true,
-	-- 		})
-	--
-	-- 		vim.cmd.colorscheme("eldritch")
-	-- 	end,
-	-- },
 	{
-		"catppuccin/nvim",
+		"eldritch-theme/eldritch.nvim",
 		lazy = false,
-		version = false,
-		priority = 1000,
-		name = "catppuccin",
+		name = "eldritch",
 		config = function()
-			local catppuccin = require("catppuccin")
-
-			catppuccin.setup({
-				integrations = {
-					nvimtree = true,
-				},
-				-- custom_highlights = {
-				-- 	LineNr = { fg = "#a6adc8" },
-				-- },
-				transparent_background = false,
+			require("eldritch").setup({
+				transparent = true,
+				terminal_colors = true,
 			})
 
-			vim.cmd.colorscheme("catppuccin-mocha")
+			vim.cmd.colorscheme("eldritch")
 		end,
 	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	lazy = false,
+	-- 	version = false,
+	-- 	priority = 1000,
+	-- 	name = "catppuccin",
+	-- 	config = function()
+	-- 		local catppuccin = require("catppuccin")
+	--
+	-- 		catppuccin.setup({
+	-- 			integrations = {
+	-- 				nvimtree = true,
+	-- 			},
+	-- 			-- custom_highlights = {
+	-- 			-- 	LineNr = { fg = "#a6adc8" },
+	-- 			-- },
+	-- 			transparent_background = false,
+	-- 		})
+	--
+	-- 		vim.cmd.colorscheme("catppuccin-mocha")
+	-- 	end,
+	-- },
 }
