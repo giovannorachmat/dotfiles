@@ -1,5 +1,12 @@
 return {
 	-- {
+	-- 	"rose-pine/neovim",
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme rose-pine")
+	-- 	end,
+	-- },
+	-- {
 	-- 	"neanias/everforest-nvim",
 	-- 	lazy = false,
 	-- 	version = false,
@@ -26,14 +33,11 @@ return {
 	{
 		"eldritch-theme/eldritch.nvim",
 		lazy = false,
-		name = "eldritch",
 		config = function()
 			require("eldritch").setup({
 				transparent = true,
 				terminal_colors = true,
 			})
-
-			vim.cmd.colorscheme("eldritch")
 		end,
 	},
 	-- {

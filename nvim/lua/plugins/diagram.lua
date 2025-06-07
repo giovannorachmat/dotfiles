@@ -1,5 +1,6 @@
 return {
 	"3rd/diagram.nvim",
+	event = "VeryLazy",
 	dependencies = {
 		"3rd/image.nvim",
 	},

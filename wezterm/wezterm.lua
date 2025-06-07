@@ -6,10 +6,10 @@ config = {
 	term = "xterm-kitty",
 	enable_kitty_graphics = true,
 
-	color_scheme = "Catppuccin Mocha",
+	color_scheme = "Eldritch",
 	font_size = 16.0,
 
-	max_fps = 165,
+	max_fps = 120,
 	cursor_blink_rate = 0,
 
 	enable_tab_bar = false,

@@ -22,6 +22,8 @@ export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 export GCP_ZONE="asia-southeast2-a"
+export EDITOR=nvim
+export VISUAL=nvim
 
 # History configuration
 HISTSIZE=100000
@@ -59,6 +61,9 @@ source $XDG_CONFIG_HOME/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 # ======================
 # gcloud CLI
 # ======================
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/giovannor/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/giovannor/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
@@ -198,8 +203,3 @@ eval "$(starship init zsh)"
 # prompt
 fastfetch
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/giovannor/google-cloud-sdk/path.zsh.inc' ]; then . '/home/giovannor/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/giovannor/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/giovannor/google-cloud-sdk/completion.zsh.inc'; fi
