@@ -22,7 +22,7 @@ return {
 			-- "markdownlint-cli2",
 			-- "marksman",
 			-- "prettierd",
-			-- "pyright",
+			"pyright",
 			"ruff",
 			"semgrep",
 			"shfmt",
@@ -39,4 +39,14 @@ return {
 			"yaml-language-server",
 		},
 	},
+	-- config = function()
+	-- 	local lspconfig = require("lspconfig")
+	-- 	lspconfig.pyright.setup({
+	-- 		settings = {
+	-- 			python = {
+	-- 				pythonPath = "/usr/bin/python",
+	-- 			},
+	-- 		},
+	-- 	})
+	-- end,
 }
