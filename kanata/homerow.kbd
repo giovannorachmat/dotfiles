@@ -2,27 +2,13 @@
 
 (defsrc
   [ ]
-  caps a s d f g h j k l ;
+  caps a s d f g h j k l ; '
 )
 
 (defvar
-  tap-time 200
-  hold-time 200
+  tap-time 250
+  hold-time 250
 )
-
-;; (defalias
-;;   capsec (tap-hold $tap-time $hold-time esc lctl)
-;;   a (tap-hold $tap-time $hold-time a lmet)
-;;   s (tap-hold $tap-time $hold-time s lalt)
-;;   d (tap-hold $tap-time $hold-time d lsft)
-;;   f (tap-hold $tap-time $hold-time f lctl)
-;;   j (tap-hold $tap-time $hold-time j rctl)
-;;   k (tap-hold $tap-time $hold-time k rsft)
-;;   l (tap-hold $tap-time $hold-time l ralt)
-;;   ; (tap-hold $tap-time $hold-time ; rmet)
-;;   sqhome (tap-hold $tap-time $hold-time [ home)
-;;   sqend (tap-hold $tap-time $hold-time ] end)
-;; )
 
 (defalias
   capsec (tap-hold 50 $hold-time esc lctl)
@@ -36,9 +22,10 @@
   ; (multi f24 (tap-hold $tap-time $hold-time ; rmet))
   sqhome (tap-hold $tap-time $hold-time [ home)
   sqend (tap-hold $tap-time $hold-time ] end)
+  quhyper (tap-hold $tap-time $hold-time ' (multi lsft lctl lalt lmet))
 )
 
 (deflayer base
   @sqhome @sqend
-  @capsec @a @s @d @f _ _ @j @k @l @;
+  @capsec @a @s @d @f _ _ @j @k @l @; @quhyper
 )
