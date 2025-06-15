@@ -18,14 +18,6 @@ return {
 				indent_markers = {
 					enable = true,
 				},
-				-- icons = {
-				--   glyphs = {
-				--     folder = {
-				--       arrow_closed = "", -- arrow when folder is closed
-				--       arrow_open = "", -- arrow when folder is open
-				--     },
-				--   },
-				-- },
 			},
 			actions = {
 				open_file = {
@@ -48,6 +40,7 @@ return {
 		local wk = require("which-key")
 		--
 		wk.add({
+			{ mode = "n", "<leader>e", desc = "nvim-tree", icon = " " },
 			{ mode = "n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
 			{
 				mode = "n",

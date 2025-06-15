@@ -35,6 +35,7 @@ opt.cursorline = true -- highlight the current cursor line
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.showmode = false
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
@@ -59,7 +60,6 @@ opt.undolevels = 10000
 
 -- left 12 lines above and below when scrolling
 opt.scrolloff = 12
-opt.signcolumn = "yes"
 
 -- set a column border
 opt.colorcolumn = "100"

@@ -6,7 +6,7 @@ config = {
 	term = "xterm-kitty",
 	enable_kitty_graphics = true,
 
-	color_scheme = "Eldritch",
+	color_scheme = "rose-pine",
 	font_size = 16.0,
 
 	max_fps = 120,
@@ -17,8 +17,7 @@ config = {
 	window_decorations = "INTEGRATED_BUTTONS|RESIZE",
 
 	scrollback_lines = 10000,
-	-- macos_window_background_blur = true,
-	-- window_background_opacity = 0.8,
+	window_background_opacity = 0.87,
 	-- text_background_opacity = 0.6,
 }
 
