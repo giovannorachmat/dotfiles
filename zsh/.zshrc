@@ -1,22 +1,18 @@
 # ======================
 # Brew
 # ======================
-# Detect OS and set Brew path dynamically
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  # Linux (including cachyOS)
-  BREW_PATH="/home/linuxbrew/.linuxbrew"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  # macOS
-  BREW_PATH="/opt/homebrew"
-fi
-
+# set Brew path dynamically
+export BREW_PATH="/home/linuxbrew/.linuxbrew"
 eval "$($BREW_PATH/bin/brew shellenv)"
 
 # ======================
 # General ZSH settings
 # ======================
+# set PATH
+export ROFI_SCRIPTS_PATH=".config/rofi/scripts"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/$ROFI_SCRIPTS_PATH:$BREW_PATH/bin:/usr/local/bin:$PATH"
+
 # Set env vars
-export PATH="$HOME/bin:$HOME/.local/bin:$BREW_PATH/bin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
@@ -206,9 +202,12 @@ function wg {
   done
 }
 
+
+
+# ======================
+# Aliases
 # ======================
 # git
-# ======================
 alias gs="git status"
 alias gap="git add --patch"
 alias gp="git push"
@@ -219,12 +218,9 @@ alias gi="git init"
 alias gcl="git clone"
 alias gc="git commit"
 alias gnb="git checkout -b"
-alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' ' --pretty=''"
+alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' ' --pretty='' origin/master"
 alias gc="git checkout"
 
-# ======================
-# kubernetes
-# ======================
 # kubectl
 alias k="kubectl"
 alias kap="kubectl apply"
@@ -235,17 +231,23 @@ alias kctx='kubectl config use-context $(kubectl config get-contexts -o name | f
 alias kz="kustomize"
 alias kzb="kustomize build"
 
+# docker desktop
+alias dd="docker desktop"
+
+# neofetch
+alias fastfetch="clear && fastfetch"
+alias ff="fastfetch"
+
 # ======================
 # Starship
 # ======================
 # config path
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-# prompt
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
 eval "$(starship init zsh)"
 
-# ======================
-# Neofetch
-# ======================
-# prompt
 fastfetch
 

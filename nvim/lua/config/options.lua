@@ -47,10 +47,6 @@ opt.clipboard = "unnamedplus" -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
--- highlighting
-opt.hlsearch = false
-opt.incsearch = true
-
 -- undotree related
 opt.swapfile = false
 opt.backup = false
@@ -62,7 +58,7 @@ opt.undolevels = 10000
 opt.scrolloff = 12
 
 -- set a column border
-opt.colorcolumn = "100"
+-- opt.colorcolumn = "100"
 
 -- set fold behavior
 vim.wo.foldmethod = "expr"

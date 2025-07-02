@@ -10,6 +10,7 @@ return {
 	{ "coding.snacks_picker", enabled = false },
 	{ "editor.snacks_picker", enabled = false },
 	{ "lsp.snacks_picker", enabled = false },
+	{ "hardtime.nvim", enabled = false },
 	-- { "ui.snacks_picker", enabled = false },
 	-- { "snacks.nvim", enabled = false },
 }
