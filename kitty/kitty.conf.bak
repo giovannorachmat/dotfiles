@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
 # BEGIN_KITTY_THEME
-# Eldritch dark
+# Rosé Pine
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -312,7 +312,7 @@ cursor_blink_interval 2
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity. Set to zero to never stop blinking.
 
-cursor_trail 3
+# cursor_trail 0
 
 #: Set this to a value larger than zero to enable a "cursor trail"
 #: animation. This is an animation that shows a "trail" following the
@@ -328,7 +328,7 @@ cursor_trail 3
 #: cursor_trail_start_threshold to control when a cursor trail is
 #: started.
 
-cursor_trail_decay 0.1 0.4
+# cursor_trail_decay 0.1 0.4
 
 #: Controls the decay times for the cursor trail effect when the
 #: cursor_trail is enabled. This option accepts two positive float
@@ -352,7 +352,7 @@ cursor_trail_decay 0.1 0.4
 
 #: Scrollback {{{
 
-scrollback_lines 20000
+scrollback_lines 10000
 
 #: Number of lines of history to keep in memory for scrolling back.
 #: Memory is allocated on demand. Negative numbers are (effectively)
@@ -745,7 +745,7 @@ scrollback_lines 20000
 
 #: Performance tuning {{{
 
-repaint_delay 4
+repaint_delay 7
 
 #: Delay between screen updates (in milliseconds). Decreasing it,
 #: increases frames-per-second (FPS) at the cost of more CPU usage.
@@ -764,7 +764,7 @@ input_delay 2
 #: because kitty is so fast that partial screen updates will be drawn.
 #: This setting is ignored when the input buffer is almost full.
 
-sync_to_monitor yes
+# sync_to_monitor yes
 
 #: Sync screen updates to the refresh rate of the monitor. This
 #: prevents screen tearing
@@ -1228,7 +1228,7 @@ tab_title_template "{num_windows} {tab.active_wd}"
 
 #: The foreground and background colors.
 
-background_opacity 0.3
+# background_opacity 1.0
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1253,7 +1253,7 @@ background_opacity 0.3
 #: will only work if dynamic_background_opacity was enabled in the
 #: original config.
 
-background_blur 10
+# background_blur 0
 
 #: Set to a positive value to enable background blur (blurring of the
 #: visuals behind a transparent window) on platforms that support it.
@@ -2001,7 +2001,7 @@ shell /usr/bin/zsh
 #: Copy to clipboard
 
 # map kitty_mod+c copy_to_clipboard
-# map ctrl+c       copy_to_clipboard
+map cmd+c       copy_to_clipboard
 
 #::  There is also a copy_or_interrupt action that can be optionally
 #::  mapped to Ctrl+C. It will copy only if there is a selection and
@@ -2012,7 +2012,7 @@ shell /usr/bin/zsh
 #: Paste from clipboard
 
 # map kitty_mod+v paste_from_clipboard
-# map ctrl+v       paste_from_clipboard
+map cmd+v       paste_from_clipboard
 
 #: Paste from selection
 
@@ -2581,13 +2581,12 @@ shell /usr/bin/zsh
 
 #: Clear screen
 
-map ctrl+l clear_terminal to_cursor_scroll active
+# map cmd+ctrl+l clear_terminal to_cursor_scroll active
 
 #: Reload kitty.conf
 
 # map kitty_mod+f5 load_config_file
 # map ctrl+cmd+,   load_config_file
-# map F5 load_config_file
 
 #::  Reload kitty.conf, applying any changes since the last time it
 #::  was loaded. Note that a handful of options cannot be dynamically
