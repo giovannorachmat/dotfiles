@@ -1,4 +1,31 @@
 # ======================
+# GCP VM Instance Start/Stop
+# ======================
+function vmstart() {
+  items=("bi-experimental" "bi-dev")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Start GCP VM instance" --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  gcloud compute instances start $config $@ --zone=$GCP_ZONE
+}
+
+function vmstop() {
+  items=("bi-experimental" "bi-dev")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt="Stop GCP VM instance" --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  gcloud compute instances stop $config $@ --zone=$GCP_ZONE
+}
+
+# ======================
 # GCP
 # ======================
 export GCP_ZONE="asia-southeast2-a"
