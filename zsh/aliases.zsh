@@ -43,6 +43,7 @@ alias kzb="kustomize build"
 
 # Docker
 alias dd="docker desktop"
+alias ld="lazydocker"
 
 # ======================
 # Git

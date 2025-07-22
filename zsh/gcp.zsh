@@ -46,15 +46,11 @@ alias vmexpstop="gcloud compute instances stop bi-experimental --zone=$ZONE"
 # Google Cloud SDK
 # ======================
 
-# GCloud completion and path
-if [ -f '/home/giovannor/google-cloud-sdk/completion.zsh.inc' ]; then 
-  . '/home/giovannor/google-cloud-sdk/completion.zsh.inc'
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${XDG_CONFIG_HOME}/google-cloud-sdk/path.zsh.inc" ]; then 
+  . "${XDG_CONFIG_HOME}/google-cloud-sdk/path.zsh.inc"
 fi
 
-if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then 
-  . "${HOME}/google-cloud-sdk/path.zsh.inc"
-fi
-
-if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then 
-  . "${HOME}/google-cloud-sdk/completion.zsh.inc"
+if [ -f "${XDG_CONFIG_HOME}/google-cloud-sdk/completion.zsh.inc" ]; then 
+  . "${XDG_CONFIG_HOME}/google-cloud-sdk/completion.zsh.inc"
 fi

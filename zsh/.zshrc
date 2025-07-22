@@ -1,7 +1,6 @@
 export ZSH_CONFIG_DIR="${HOME}/.config/zsh"
 
 source "${ZSH_CONFIG_DIR}/exports.zsh"
-source "${ZSH_CONFIG_DIR}/options.zsh"
 source "${ZSH_CONFIG_DIR}/history.zsh"
 source "${ZSH_CONFIG_DIR}/aliases.zsh"
 
