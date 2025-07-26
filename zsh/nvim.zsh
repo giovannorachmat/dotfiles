@@ -1,3 +1,7 @@
+# Alias
+alias snv="sudo nvim"
+alias svi="sudo vim"
+
 # ======================
 # Neovim Config Picker
 # ======================

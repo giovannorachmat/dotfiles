@@ -62,3 +62,13 @@ alias gnb="git checkout -b"
 alias gpu="git push"
 alias gs="git status"
 alias gu="git pull"
+
+# Alias's to modified commands
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias ps='ps auxf'
+alias ping='ping -c 10'
+alias less='less -R'
+alias cls='clear'
+alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S"

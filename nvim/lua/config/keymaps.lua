@@ -10,6 +10,13 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- move objects in normal mode
+keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+
+-- Delete without yanking
+keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
+
 -- set cursor to stay in place when adding below line
 keymap.set("n", "J", "mzJ`z")
 
