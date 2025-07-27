@@ -1,2 +1,1 @@
-require("config.keymaps")
-require("config.options")
+../../../../dotfiles/nvim/lua/config/init.lua

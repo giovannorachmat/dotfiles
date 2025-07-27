@@ -28,6 +28,10 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
+-- Better indenting in visual mode
+keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
+keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+
 -- keeps last copied object in the register
 keymap.set("x", "<leader>p", [["_dP]])
 keymap.set({ "n", "v" }, "<leader>d", [["_d]])

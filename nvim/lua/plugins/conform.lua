@@ -23,44 +23,32 @@ return {
 		},
 	},
 	opts = function()
-		local opts =
-			{
-				formatters_by_ft = {
-					docker = { "dockerfile-language-server, docker-compose-language-server" },
-					hcl = { "hcl" },
-					json = { "prettierd", "jq", stop_after_first = true },
-					lua = { "stylua" },
-					markdown = { "markdownlint-cli2" },
-					python = {
-						-- To fix auto-fixable lint errors.
-						"ruff_fix",
-						-- To run the Ruff formatter.
-						"ruff_format",
-						-- To organize the imports.
-						"ruff_organize_imports",
-					},
-					shell = { "shfmt" },
-					sql = { "sqlfmt" },
-					terraform = { "terraform_fmt" },
+		local opts = {
+			formatters_by_ft = {
+				docker = { "dockerfile-language-server, docker-compose-language-server" },
+				hcl = { "hcl" },
+				json = { "prettierd", "jq", stop_after_first = true },
+				lua = { "stylua" },
+				markdown = { "markdownlint-cli2" },
+				python = {
+					-- To fix auto-fixable lint errors.
+					"ruff_fix",
+					-- To run the Ruff formatter.
+					"ruff_format",
+					-- To organize the imports.
+					"ruff_organize_imports",
 				},
-				default_format_opts = {
-					timeout_ms = 2500,
-					lsp_format = "fallback",
-					async = false,
-					quiet = false,
-				},
-			}, vim.api.nvim_create_user_command("FormatDisable", function(args)
-				if args.bang then
-					-- :FormatDisable! disables autoformat for this buffer only
-					vim.b.disable_autoformat = true
-				else
-					-- :FormatDisable disables autoformat globally
-					vim.g.disable_autoformat = true
-				end
-			end, {
-				desc = "Disable autoformat-on-save",
-				bang = true, -- allows the ! variant
-			})
+				shell = { "shfmt" },
+				sql = { "sqlfmt" },
+				terraform = { "terraform_fmt" },
+			},
+			default_format_opts = {
+				timeout_ms = 2500,
+				lsp_format = "fallback",
+				async = false,
+				quiet = false,
+			},
+		}
 
 		vim.api.nvim_create_user_command("FormatEnable", function()
 			vim.b.disable_autoformat = false
