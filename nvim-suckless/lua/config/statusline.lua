@@ -24,6 +24,8 @@ local function file_type()
 		markdown = "[MD]",
 		vim = "[VIM]",
 		sh = "[SH]",
+		dockerfile = "[DOCKERFILE]",
+		yaml = "[YAML]",
 	}
 
 	if ft == "" then
