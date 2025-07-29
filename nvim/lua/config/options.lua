@@ -49,7 +49,7 @@ opt.pumblend = 10 -- Popup menu transparency
 opt.winblend = 0 -- Floating window transparency
 opt.conceallevel = 0 -- Don't hide markup
 opt.concealcursor = "" -- Don't hide cursor line markup
-opt.lazyredraw = true -- Don't redraw during macros
+-- opt.lazyredraw = true -- Don't redraw during macros
 opt.synmaxcol = 300 -- Syntax highlighting limit
 
 -- backspace
@@ -71,9 +71,6 @@ opt.undolevels = 10000
 
 -- left 12 lines above and below when scrolling
 opt.scrolloff = 12
-
--- set a column border
--- opt.colorcolumn = "100"
 
 -- set fold behavior
 opt.foldmethod = "expr"

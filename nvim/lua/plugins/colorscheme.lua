@@ -45,7 +45,7 @@ return {
 		config = function()
 			require("eldritch").setup({
 				transparent = true,
-				-- pallete = "darker",
+				pallete = "darker",
 				styles = {
 					sidebars = "terminal",
 					floats = "transparent",
@@ -70,7 +70,7 @@ return {
 					}
 				end,
 			})
-
+			--
 			-- Ensure the colorscheme is applied
 			vim.cmd.colorscheme("eldritch")
 		end,
@@ -95,6 +95,17 @@ return {
 	-- 		})
 	--
 	-- 		vim.cmd.colorscheme("catppuccin-mocha")
+	-- 	end,
+	-- },
+	--
+	-- {
+	-- 	"vague2k/vague.nvim",
+	-- 	lazy = false,
+	-- 	priority = 10000,
+	-- 	config = function()
+	-- 		require("vague").setup({
+	-- 			transparent = true,
+	-- 		})
 	-- 	end,
 	-- },
 }
