@@ -1,18 +1,22 @@
+-- ============================================================================
+-- LSP
+-- ============================================================================
+
 vim.lsp.enable({
-	"ruff",
-	"lua_ls",
+	"bqls",
 	"docker_compose_language_service",
 	"dockerls",
-	"yamlls",
-	"bqls",
-	"postgres_lsp",
-	"harper_ls",
+  "harper_ls",
+  "lua_ls",
+	"ruff",
+  "pyright",
 	"snyk_ls",
+	"yamlls",
 })
 
 vim.diagnostic.config({
 	virtual_lines = false,
-	virtual_text = true,
+	virtual_text = false,
 	underline = false,
 	update_in_insert = false,
 	severity_sort = true,
@@ -32,8 +36,4 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.WARN] = "WarningMsg",
 		},
 	},
-})
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	virtual_text = false,
 })
