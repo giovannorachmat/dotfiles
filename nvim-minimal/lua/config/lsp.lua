@@ -3,15 +3,15 @@
 -- ============================================================================
 
 vim.lsp.enable({
-	"bqls",
-	"docker_compose_language_service",
-	"dockerls",
-  "harper_ls",
-  "lua_ls",
-	"ruff",
-  "pyright",
-	"snyk_ls",
-	"yamlls",
+    "bqls",
+    "docker_compose_language_service",
+    "dockerls",
+    "harper_ls",
+    "lua_ls",
+    "pyright",
+    "ruff",
+    "snyk_ls",
+    "yamlls",
 })
 
 vim.diagnostic.config({

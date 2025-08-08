@@ -50,6 +50,12 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 -- vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
 -- vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
 
+-- Go to definition
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Go to references" })
+vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+
 -- Better J behavior
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
@@ -68,7 +74,7 @@ vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 
 -- Copy Full File-Path
 vim.keymap.set("n", "<leader>pa", function()
-	local path = vim.fn.expand("%:p")
-	vim.fn.setreg("+", path)
-	print("file:", path)
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    print("file:", path)
 end)

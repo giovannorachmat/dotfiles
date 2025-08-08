@@ -3,10 +3,19 @@ return {
   lazy = false,
   dependencies = { "echasnovski/mini.icons" },
   config = function()
-    require("mini.pick").setup()
+    require("mini.pick").setup({
+        mappings = {
+            scroll_down = '<C-j>',
+            scroll_up = '<C-k>',
+        }
+    })
 
-    vim.keymap.set('n', '<leader>ff', ':Pick files<CR>', { desc = 'Pick files' })
-    vim.keymap.set('n', '<leader>fh', ':Pick help<CR>', { desc = 'Pick help' })
-    vim.keymap.set('n', '<leader>fb', ':Pick buffers<CR>', { desc = 'Pick buffers' })
+    local builtin = require('mini.pick').builtin
+
+    vim.keymap.set('n', '<leader>ff', function() builtin.files() end, { desc = 'Pick files' })
+    vim.keymap.set('n', '<leader>fh', function() builtin.help() end, { desc = 'Pick help' })
+    vim.keymap.set('n', '<leader>fb', function() builtin.buffers() end, { desc = 'Pick buffers' })
+    vim.keymap.set('n', '<leader>fg', function() builtin.grep_live() end, { desc = 'Pick grep' })
+
   end
 }

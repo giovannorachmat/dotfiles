@@ -10,7 +10,7 @@ export BREW_PATH="/home/linuxbrew/.linuxbrew"
 eval "$($BREW_PATH/bin/brew shellenv)"
 
 # PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$PATH"
 
 # set up XDG folders
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -185,6 +185,19 @@ function nvims() {
   fi
   NVIM_APPNAME=nvim-$config nvim $@
 }
+
+# ======================
+# Python
+# ======================
+
+# activate venv
+alias pyva="source .venv/bin/activate"
+alias pyvd="deactivate"
+
+# Pyenv 
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init - bash)"
+fi
 
 # ======================
 # Starship

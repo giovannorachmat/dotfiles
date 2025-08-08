@@ -34,7 +34,7 @@ export EMAIL="giovanno.rachmat@oyindonesia.com"
 export PROJECT="data-298904"
 export ZONE="asia-southeast2-a"
 
-alias gcal="gcloud auth login $EMAIL --project $PROJECT"
+alias gcal="gcloud auth login $EMAIL --project $PROJECT --enable-gdrive-access --update-adc"
 alias gcaal="gcloud auth application-default login --account $EMAIL --project $PROJECT"
 
 alias vmdevstart="gcloud compute instances start bi-dev --zone=$ZONE"
