@@ -1,3 +1,24 @@
+# ======================
+# OS Detection
+# ======================
+
+# Detect current OS
+detect_os() {
+    case "$(uname -s)" in
+        Darwin*)
+            echo "macos"
+            ;;
+        Linux*)
+            echo "linux"
+            ;;
+        CYGWIN*|MINGW32*|MSYS*|MINGW*)
+            echo "windows"
+            ;;
+        *)
+            echo "unknown"
+            ;;
+    esac
+}
 
 # ======================
 # Environment Variables
@@ -5,9 +26,37 @@
 
 export ZSH_CONFIG_DIR="${HOME}/.config/zsh"
 
+# Set OS variable
+export CURRENT_OS=$(detect_os)
+
 # Brew configuration
-export BREW_PATH="/home/linuxbrew/.linuxbrew"
-eval "$($BREW_PATH/bin/brew shellenv)"
+# Set Brew path based on OS
+case "$CURRENT_OS" in
+    macos)
+        # macOS - check for both Intel and Apple Silicon paths
+        if [[ -d "/opt/homebrew" ]]; then
+            export BREW_PATH="/opt/homebrew"  # Apple Silicon
+        elif [[ -d "/usr/local/Homebrew" ]]; then
+            export BREW_PATH="/usr/local"     # Intel Mac
+        else
+            export BREW_PATH="/usr/local"     # Default fallback
+        fi
+        ;;
+    linux)
+        export BREW_PATH="/home/linuxbrew/.linuxbrew"
+        ;;
+    *)
+        echo "Warning: Unsupported OS for Homebrew: $CURRENT_OS"
+        export BREW_PATH="/usr/local"  # Fallback
+        ;;
+esac
+
+# Initialize Homebrew if it exists
+if [[ -x "$BREW_PATH/bin/brew" ]]; then
+    eval "$($BREW_PATH/bin/brew shellenv)"
+else
+    echo "Warning: Homebrew not found at $BREW_PATH"
+fi
 
 # PATH configuration
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$PATH"
@@ -121,18 +170,24 @@ alias litevim="NVIM_APPNAME=nvim-lite nvim"
 # ======================
 # Syntax Highlighting & Autosuggestions
 # ======================
-
-# fast-syntax-highlighting
-# source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-
-# zsh-autocomplete
-# source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-# zsh-autosuggestions
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+case "$CURRENT_OS" in
+    macos)
+        # fast-syntax-highlighting
+        source $XDG_CONFIG_HOME/f-sy-h/F-Sy-H.plugin.zsh
+        # zsh-autocomplete
+        source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+        # zsh-autosuggestions
+        source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        ;;
+    linux)
+        # fast-syntax-highlighting
+        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+        # zsh-autocomplete
+        source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+        # zsh-autosuggestions
+        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+        ;;
+esac
 
 # ======================
 # FZF Configuration
@@ -173,18 +228,18 @@ eval "$(fzf --zsh)"
 # Neovim Config Picker
 # ======================
 
-# Taken from Elijah Manor
-function nvims() {
-  items=("default" "minimal" "lite" "suckless")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=nvim-$config nvim $@
-}
+# # Taken from Elijah Manor
+# function nvims() {
+#   items=("default" "minimal" "lite" "suckless")
+#   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+#   if [[ -z $config ]]; then
+#     echo "Nothing selected"
+#     return 0
+#   elif [[ $config == "default" ]]; then
+#     config=""
+#   fi
+#   NVIM_APPNAME=nvim-$config nvim $@
+# }
 
 # ======================
 # Python
@@ -666,7 +721,6 @@ fi
 
 # Initialize starship
 eval "$(starship init zsh)"
-
 
 # ======================
 # Work related
