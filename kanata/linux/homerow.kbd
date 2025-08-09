@@ -1,0 +1,31 @@
+(defcfg process-unmapped-keys yes)
+
+(defsrc
+  [ ]
+  caps a s d f g h j k l ; '
+)
+
+(defvar
+  tap-time 250
+  hold-time 250
+)
+
+(defalias
+  ;; capsec (multi f24 (tap-hold 50 $hold-time esc lctl))
+  a (multi f24 (tap-hold $tap-time $hold-time a lmet))
+  s (multi f24 (tap-hold $tap-time $hold-time s lalt))
+  d (multi f24 (tap-hold $tap-time $hold-time d lsft))
+  f (multi f24 (tap-hold $tap-time $hold-time f lctl))
+  j (multi f24 (tap-hold $tap-time $hold-time j rctl))
+  k (multi f24 (tap-hold $tap-time $hold-time k rsft))
+  l (multi f24 (tap-hold $tap-time $hold-time l ralt))
+  ; (multi f24 (tap-hold $tap-time $hold-time ; rmet))
+  sqhome (multi f24 (tap-hold $tap-time $hold-time [ home))
+  sqend (multi f24 (tap-hold $tap-time $hold-time ] end))
+  quhyper (multi f24 (tap-hold $tap-time $hold-time ' (multi lsft lctl lalt lmet)))
+)
+
+(deflayer base
+  @sqhome @sqend
+  lctl @a @s @d @f _ _ @j @k @l @; @quhyper
+)

@@ -4,90 +4,91 @@
 -- ================================================================================================
 
 -- theme & transparency
-vim.cmd.colorscheme("habamax")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 
 -- Basic settings
-vim.opt.number = true                              -- Line numbers
-vim.opt.relativenumber = true                      -- Relative line numbers
-vim.opt.cursorline = true                          -- Highlight current line
-vim.opt.wrap = false                               -- Don't wrap lines
-vim.opt.scrolloff = 10                             -- Keep 10 lines above/below cursor 
-vim.opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor
+vim.opt.number = true         -- Line numbers
+vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.cursorline = true     -- Highlight current line
+vim.opt.wrap = false          -- Don't wrap lines
+vim.opt.scrolloff = 10        -- Keep 10 lines above/below cursor
+vim.opt.sidescrolloff = 8     -- Keep 8 columns left/right of cursor
 
 -- Indentation
-vim.opt.tabstop = 2                                -- Tab width
-vim.opt.shiftwidth = 2                             -- Indent width
-vim.opt.softtabstop = 2                            -- Soft tab stop
-vim.opt.expandtab = true                           -- Use spaces instead of tabs
-vim.opt.smartindent = true                         -- Smart auto-indenting
-vim.opt.autoindent = true                          -- Copy indent from current line
+vim.opt.tabstop = 2        -- Tab width
+vim.opt.shiftwidth = 2     -- Indent width
+vim.opt.softtabstop = 2    -- Soft tab stop
+vim.opt.expandtab = true   -- Use spaces instead of tabs
+vim.opt.smartindent = true -- Smart auto-indenting
+vim.opt.autoindent = true  -- Copy indent from current line
 
 -- Search settings
-vim.opt.ignorecase = true                          -- Case insensitive search
-vim.opt.smartcase = true                           -- Case sensitive if uppercase in search
-vim.opt.hlsearch = false                           -- Don't highlight search results 
-vim.opt.incsearch = true                           -- Show matches as you type
+vim.opt.ignorecase = true -- Case insensitive search
+vim.opt.smartcase = true  -- Case sensitive if uppercase in search
+vim.opt.hlsearch = false  -- Don't highlight search results
+vim.opt.incsearch = true  -- Show matches as you type
 
 -- Visual settings
-vim.opt.termguicolors = true                       -- Enable 24-bit colors
-vim.opt.signcolumn = "yes"                         -- Always show sign column
-vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
-vim.opt.showmatch = true                           -- Highlight matching brackets
-vim.opt.matchtime = 2                              -- How long to show matching bracket
-vim.opt.cmdheight = 1                              -- Command line height
-vim.opt.completeopt = "menuone,noinsert,noselect"  -- Completion options 
-vim.opt.showmode = false                           -- Don't show mode in command line 
-vim.opt.pumheight = 10                             -- Popup menu height 
-vim.opt.pumblend = 10                              -- Popup menu transparency 
-vim.opt.winblend = 0                               -- Floating window transparency 
-vim.opt.conceallevel = 0                           -- Don't hide markup 
-vim.opt.concealcursor = ""                         -- Don't hide cursor line markup 
-vim.opt.lazyredraw = true                          -- Don't redraw during macros
-vim.opt.synmaxcol = 300                            -- Syntax highlighting limit 
+vim.opt.termguicolors = true                      -- Enable 24-bit colors
+vim.opt.signcolumn = "yes"                        -- Always show sign column
+vim.opt.colorcolumn = "100"                       -- Show column at 100 characters
+vim.opt.showmatch = true                          -- Highlight matching brackets
+vim.opt.matchtime = 2                             -- How long to show matching bracket
+vim.opt.cmdheight = 1                             -- Command line height
+vim.opt.completeopt = "menuone,noinsert,noselect" -- Completion options
+vim.opt.showmode = false                          -- Don't show mode in command line
+vim.opt.pumheight = 10                            -- Popup menu height
+vim.opt.pumblend = 10                             -- Popup menu transparency
+vim.opt.winblend = 0                              -- Floating window transparency
+vim.opt.winborder = "rounded"                     -- Rounded borders for hover
+vim.opt.conceallevel = 0                          -- Don't hide markup
+vim.opt.concealcursor = ""                        -- Don't hide cursor line markup
+vim.opt.lazyredraw = true                         -- Don't redraw during macros
+vim.opt.synmaxcol = 300                           -- Syntax highlighting limit
 
 -- File handling
-vim.opt.backup = false                             -- Don't create backup files
-vim.opt.writebackup = false                        -- Don't create backup before writing
-vim.opt.swapfile = false                           -- Don't create swap files
-vim.opt.undofile = true                            -- Persistent undo
-vim.opt.undodir = vim.fn.expand("~/.vim/undodir")  -- Undo directory
-vim.opt.updatetime = 300                           -- Faster completion
-vim.opt.timeoutlen = 500                           -- Key timeout duration
-vim.opt.ttimeoutlen = 0                            -- Key code timeout
-vim.opt.autoread = true                            -- Auto reload files changed outside vim
-vim.opt.autowrite = false                          -- Don't auto save
+vim.opt.backup = false                            -- Don't create backup files
+vim.opt.writebackup = false                       -- Don't create backup before writing
+vim.opt.swapfile = false                          -- Don't create swap files
+vim.opt.undofile = true                           -- Persistent undo
+vim.opt.undodir = vim.fn.expand("~/.vim/undodir") -- Undo directory
+vim.opt.updatetime = 300                          -- Faster completion
+vim.opt.timeoutlen = 500                          -- Key timeout duration
+vim.opt.ttimeoutlen = 0                           -- Key code timeout
+vim.opt.autoread = true                           -- Auto reload files changed outside vim
+vim.opt.autowrite = false                         -- Don't auto save
 
 -- Behavior settings
-vim.opt.hidden = true                              -- Allow hidden buffers
-vim.opt.errorbells = false                         -- No error bells
-vim.opt.backspace = "indent,eol,start"             -- Better backspace behavior
-vim.opt.autochdir = false                          -- Don't auto change directory
-vim.opt.iskeyword:append("-")                      -- Treat dash as part of word
-vim.opt.path:append("**")                          -- include subdirectories in search
-vim.opt.selection = "exclusive"                    -- Selection behavior
-vim.opt.mouse = "a"                                -- Enable mouse support
-vim.opt.clipboard:append("unnamedplus")            -- Use system clipboard
-vim.opt.modifiable = true                          -- Allow buffer modifications
-vim.opt.encoding = "UTF-8"                         -- Set encoding
+vim.opt.hidden = true                   -- Allow hidden buffers
+vim.opt.errorbells = false              -- No error bells
+vim.opt.backspace = "indent,eol,start"  -- Better backspace behavior
+vim.opt.autochdir = false               -- Don't auto change directory
+vim.opt.iskeyword:append("-")           -- Treat dash as part of word
+vim.opt.path:append("**")               -- include subdirectories in search
+vim.opt.selection = "exclusive"         -- Selection behavior
+vim.opt.mouse = "a"                     -- Enable mouse support
+vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
+vim.opt.modifiable = true               -- Allow buffer modifications
+vim.opt.encoding = "UTF-8"              -- Set encoding
 
 -- Cursor settings
-vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.opt.guicursor =
+"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Folding settings
-vim.opt.foldmethod = "expr"                        -- Use expression for folding
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"    -- Use treesitter for folding
-vim.opt.foldlevel = 99                             -- Start with all folds open
+vim.opt.foldmethod = "expr"                     -- Use expression for folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Use treesitter for folding
+vim.opt.foldlevel = 99                          -- Start with all folds open
 
 -- Split behavior
-vim.opt.splitbelow = true                          -- Horizontal splits go below
-vim.opt.splitright = true                          -- Vertical splits go right
+vim.opt.splitbelow = true -- Horizontal splits go below
+vim.opt.splitright = true -- Vertical splits go right
 
 -- Key mappings
-vim.g.mapleader = " "                              -- Set leader key to space
-vim.g.maplocalleader = " "                         -- Set local leader key (NEW)
+vim.g.mapleader = " "      -- Set leader key to space
+vim.g.maplocalleader = " " -- Set local leader key (NEW)
 
 -- Normal mode mappings
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { desc = "Clear search highlights" })
@@ -105,17 +106,21 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
 
 -- Delete without yanking
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
+-- vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
+
+-- Yank using system clipboard
+vim.keymap.set({ 'n', 'v', 'x' }, "<leader>y", [["+y]])
+vim.keymap.set({ 'n', 'v', 'x' }, "<leader>d", [["+d]])
 
 -- Buffer navigation
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
 
--- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+-- -- Better window navigation
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Splitting & Resizing
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
@@ -128,8 +133,8 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase w
 -- Move lines up/down
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Better indenting in visual mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
@@ -137,13 +142,60 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Quick file navigation
 vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
-vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
 
 -- Better J behavior
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
 -- Quick config editing
-vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim-lite/init.lua<CR>", { desc = "Edit config" })
+vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim-vanilla/init.lua<CR>", { desc = "Edit config" })
+
+-- LSP & completions
+vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+vim.lsp.enable({
+  'bashls',
+  'bqls',
+  'docker_compose_language_service',
+  'docker_language_server',
+  'dockerls',
+  'harper_ls',
+  'lua_ls',
+  'ruff',
+  'snyk_ls',
+  'sqruff',
+  'yamlls',
+})
+
+-- Packages
+vim.pack.add({
+  { src = "https://github.com/echasnovski/mini.pairs" },
+  { src = "https://github.com/echasnovski/mini.pick" },
+  { src = "https://github.com/kdheepak/lazygit.nvim" },
+  { src = "https://github.com/mbbill/undotree" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/stevearc/oil.nvim" },
+  { src = "https://github.com/tpope/vim-fugitive" },
+  { src = "https://github.com/tpope/vim-surround" },
+  { src = "https://github.com/vague2k/vague.nvim" },
+})
+
+require "mini.pairs".setup()
+
+require "mini.pick".setup()
+vim.keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Pick files" })
+vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Pick buffers" })
+vim.keymap.set("n", "<leader>fh", ":Pick help<CR>", { desc = "Pick help" })
+vim.keymap.set("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Pick grep live" })
+
+vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Lazygit" })
+
+vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
+
+require "oil".setup()
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+require "vague".setup({ transparent = true })
+vim.cmd.colorscheme("vague")
 
 -- ============================================================================
 -- USEFUL FUNCTIONS
@@ -151,9 +203,9 @@ vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim-lite/init.lua<CR>", { desc 
 
 -- Copy Full File-Path
 vim.keymap.set("n", "<leader>pa", function()
-	local path = vim.fn.expand("%:p")
-	vim.fn.setreg("+", path)
-	print("file:", path)
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  print("file:", path)
 end)
 
 -- Basic autocommands
@@ -230,9 +282,9 @@ vim.api.nvim_create_autocmd("VimResized", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup,
   callback = function()
-    local dir = vim.fn.expand('<afile>:p:h')
+    local dir = vim.fn.expand("<afile>:p:h")
     if vim.fn.isdirectory(dir) == 0 then
-      vim.fn.mkdir(dir, 'p')
+      vim.fn.mkdir(dir, "p")
     end
   end,
 })
@@ -263,7 +315,7 @@ end
 local terminal_state = {
   buf = nil,
   win = nil,
-  is_open = false
+  is_open = false,
 }
 
 local function FloatingTerminal()
@@ -278,7 +330,7 @@ local function FloatingTerminal()
   if not terminal_state.buf or not vim.api.nvim_buf_is_valid(terminal_state.buf) then
     terminal_state.buf = vim.api.nvim_create_buf(false, true)
     -- Set buffer options for better terminal experience
-    vim.api.nvim_buf_set_option(terminal_state.buf, 'bufhidden', 'hide')
+    vim.api.nvim_buf_set_option(terminal_state.buf, "bufhidden", "hide")
   end
 
   -- Calculate window dimensions
@@ -289,25 +341,28 @@ local function FloatingTerminal()
 
   -- Create the floating window
   terminal_state.win = vim.api.nvim_open_win(terminal_state.buf, true, {
-    relative = 'editor',
+    relative = "editor",
     width = width,
     height = height,
     row = row,
     col = col,
-    style = 'minimal',
-    border = 'rounded',
+    style = "minimal",
+    border = "rounded",
   })
 
   -- Set transparency for the floating window
-  vim.api.nvim_win_set_option(terminal_state.win, 'winblend', 0)
+  vim.api.nvim_win_set_option(terminal_state.win, "winblend", 0)
 
   -- Set transparent background for the window
-  vim.api.nvim_win_set_option(terminal_state.win, 'winhighlight',
-    'Normal:FloatingTermNormal,FloatBorder:FloatingTermBorder')
+  vim.api.nvim_win_set_option(
+    terminal_state.win,
+    "winhighlight",
+    "Normal:FloatingTermNormal,FloatBorder:FloatingTermBorder"
+  )
 
   -- Define highlight groups for transparency
   vim.api.nvim_set_hl(0, "FloatingTermNormal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "FloatingTermBorder", { bg = "none", })
+  vim.api.nvim_set_hl(0, "FloatingTermBorder", { bg = "none" })
 
   -- Start terminal if not already running
   local has_terminal = false
@@ -326,7 +381,7 @@ local function FloatingTerminal()
   terminal_state.is_open = true
   vim.cmd("startinsert")
 
-  -- Set up auto-close on buffer leave 
+  -- Set up auto-close on buffer leave
   vim.api.nvim_create_autocmd("BufLeave", {
     buffer = terminal_state.buf,
     callback = function()
@@ -335,7 +390,7 @@ local function FloatingTerminal()
         terminal_state.is_open = false
       end
     end,
-    once = true
+    once = true,
   })
 end
 
@@ -356,14 +411,13 @@ vim.keymap.set("t", "<Esc>", function()
   end
 end, { noremap = true, silent = true, desc = "Close floating terminal from terminal mode" })
 
-
 -- ============================================================================
 -- TABS
 -- ============================================================================
 
 -- Tab display settings
-vim.opt.showtabline = 1  -- Always show tabline (0=never, 1=when multiple tabs, 2=always)
-vim.opt.tabline = ''     -- Use default tabline (empty string uses built-in)
+vim.opt.showtabline = 1 -- Always show tabline (0=never, 1=when multiple tabs, 2=always)
+vim.opt.tabline = ""    -- Use default tabline (empty string uses built-in)
 
 -- Transparent tabline appearance
 vim.cmd([[
@@ -371,40 +425,40 @@ vim.cmd([[
 ]])
 
 -- Alternative navigation (more intuitive)
-vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
-vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close tab" })
 
 -- Tab moving
-vim.keymap.set('n', '<leader>tm', ':tabmove<CR>', { desc = 'Move tab' })
-vim.keymap.set('n', '<leader>t>', ':tabmove +1<CR>', { desc = 'Move tab right' })
-vim.keymap.set('n', '<leader>t<', ':tabmove -1<CR>', { desc = 'Move tab left' })
+vim.keymap.set("n", "<leader>tm", ":tabmove<CR>", { desc = "Move tab" })
+vim.keymap.set("n", "<leader>t>", ":tabmove +1<CR>", { desc = "Move tab right" })
+vim.keymap.set("n", "<leader>t<", ":tabmove -1<CR>", { desc = "Move tab left" })
 
 -- Function to open file in new tab
 local function open_file_in_tab()
-  vim.ui.input({ prompt = 'File to open in new tab: ', completion = 'file' }, function(input)
-    if input and input ~= '' then
-      vim.cmd('tabnew ' .. input)
+  vim.ui.input({ prompt = "File to open in new tab: ", completion = "file" }, function(input)
+    if input and input ~= "" then
+      vim.cmd("tabnew " .. input)
     end
   end)
 end
 
 -- Function to duplicate current tab
 local function duplicate_tab()
-  local current_file = vim.fn.expand('%:p')
-  if current_file ~= '' then
-    vim.cmd('tabnew ' .. current_file)
+  local current_file = vim.fn.expand("%:p")
+  if current_file ~= "" then
+    vim.cmd("tabnew " .. current_file)
   else
-    vim.cmd('tabnew')
+    vim.cmd("tabnew")
   end
 end
 
 -- Function to close tabs to the right
 local function close_tabs_right()
   local current_tab = vim.fn.tabpagenr()
-  local last_tab = vim.fn.tabpagenr('$')
+  local last_tab = vim.fn.tabpagenr("$")
 
   for i = last_tab, current_tab + 1, -1 do
-    vim.cmd(i .. 'tabclose')
+    vim.cmd(i .. "tabclose")
   end
 end
 
@@ -413,27 +467,28 @@ local function close_tabs_left()
   local current_tab = vim.fn.tabpagenr()
 
   for i = current_tab - 1, 1, -1 do
-    vim.cmd('1tabclose')
+    vim.cmd("1tabclose")
   end
 end
 
 -- Enhanced keybindings
-vim.keymap.set('n', '<leader>tO', open_file_in_tab, { desc = 'Open file in new tab' })
-vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab' })
-vim.keymap.set('n', '<leader>tr', close_tabs_right, { desc = 'Close tabs to the right' })
-vim.keymap.set('n', '<leader>tL', close_tabs_left, { desc = 'Close tabs to the left' })
+vim.keymap.set("n", "<leader>tO", open_file_in_tab, { desc = "Open file in new tab" })
+vim.keymap.set("n", "<leader>td", duplicate_tab, { desc = "Duplicate current tab" })
+vim.keymap.set("n", "<leader>tr", close_tabs_right, { desc = "Close tabs to the right" })
+vim.keymap.set("n", "<leader>tL", close_tabs_left, { desc = "Close tabs to the left" })
+-- vim.keybind.set("n", "<leader>o", ":update<CR> :source<CR>")
 
 -- Function to close buffer but keep tab if it's the only buffer in tab
 local function smart_close_buffer()
   local buffers_in_tab = #vim.fn.tabpagebuflist()
   if buffers_in_tab > 1 then
-    vim.cmd('bdelete')
+    vim.cmd("bdelete")
   else
     -- If it's the only buffer in tab, close the tab
-    vim.cmd('tabclose')
+    vim.cmd("tabclose")
   end
 end
-vim.keymap.set('n', '<leader>bd', smart_close_buffer, { desc = 'Smart close buffer/tab' })
+vim.keymap.set("n", "<leader>bd", smart_close_buffer, { desc = "Smart close buffer/tab" })
 
 -- ============================================================================
 -- STATUSLINE
@@ -482,8 +537,10 @@ end
 
 -- File size
 local function file_size()
-  local size = vim.fn.getfsize(vim.fn.expand('%'))
-  if size < 0 then return "" end
+  local size = vim.fn.getfsize(vim.fn.expand("%"))
+  if size < 0 then
+    return ""
+  end
   if size < 1024 then
     return size .. "B "
   elseif size < 1024 * 1024 then
@@ -501,15 +558,15 @@ local function mode_icon()
     i = "INSERT",
     v = "VISUAL",
     V = "V-LINE",
-    ["\22"] = "V-BLOCK",  -- Ctrl-V
+    ["\22"] = "V-BLOCK",     -- Ctrl-V
     c = "COMMAND",
     s = "SELECT",
     S = "S-LINE",
-    ["\19"] = "S-BLOCK",  -- Ctrl-S
+    ["\19"] = "S-BLOCK",     -- Ctrl-S
     R = "REPLACE",
     r = "REPLACE",
     ["!"] = "SHELL",
-    t = "TERMINAL"
+    t = "TERMINAL",
   }
   return modes[mode] or "  " .. mode:upper()
 end
@@ -525,30 +582,30 @@ vim.cmd([[
 
 -- Function to change statusline based on window focus
 local function setup_dynamic_statusline()
-  vim.api.nvim_create_autocmd({"WinEnter", "BufEnter"}, {
+  vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
     callback = function()
-    vim.opt_local.statusline = table.concat {
-      "  ",
-      "%#StatusLineBold#",
-      "%{v:lua.mode_icon()}",
-      "%#StatusLine#",
-      " │ %f %h%m%r",
-      "%{v:lua.git_branch()}",
-      " │ ",
-      "%{v:lua.file_type()}",
-      " | ",
-      "%{v:lua.file_size()}",
-      "%=",                     -- Right-align everything after this
-      "%l:%c  %P ",             -- Line:Column and Percentage
-    }
-    end
+      vim.opt_local.statusline = table.concat({
+        "  ",
+        "%#StatusLineBold#",
+        "%{v:lua.mode_icon()}",
+        "%#StatusLine#",
+        " │ %f %h%m%r",
+        "%{v:lua.git_branch()}",
+        " │ ",
+        "%{v:lua.file_type()}",
+        " | ",
+        "%{v:lua.file_size()}",
+        "%=",                 -- Right-align everything after this
+        "%l:%c  %P ",         -- Line:Column and Percentage
+      })
+    end,
   })
   vim.api.nvim_set_hl(0, "StatusLineBold", { bold = true })
 
-  vim.api.nvim_create_autocmd({"WinLeave", "BufLeave"}, {
+  vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
     callback = function()
       vim.opt_local.statusline = "  %f %h%m%r │ %{v:lua.file_type()} | %=  %l:%c   %P "
-    end
+    end,
   })
 end
 
