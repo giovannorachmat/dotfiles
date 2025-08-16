@@ -176,7 +176,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/tpope/vim-fugitive" },
   { src = "https://github.com/tpope/vim-surround" },
-  { src = "https://github.com/vague2k/vague.nvim" },
+  { src = "https://github.com/catppuccin/nvim" },
 })
 
 require "mini.pairs".setup()
@@ -192,10 +192,21 @@ vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Lazygit" })
 vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
 
 require "oil".setup()
+require "oil".toggle_hidden()
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-require "vague".setup({ transparent = true })
-vim.cmd.colorscheme("vague")
+require "catppuccin".setup({
+  flavour = "mocha",                           -- latte, frappe, macchiato, mocha
+  transparent_background = true,               -- disables setting the background color.
+  float = {
+    transparent = true,
+    solid = false,                          -- use solid styling for floating windows, see |winborder|
+  },
+  term_colors = true,                       -- sets terminal colors (e.g. `g:terminal_color_0`)
+  auto_integrations = false,
+})
+
+vim.cmd.colorscheme("catppuccin")
 
 -- ============================================================================
 -- USEFUL FUNCTIONS
@@ -558,11 +569,11 @@ local function mode_icon()
     i = "INSERT",
     v = "VISUAL",
     V = "V-LINE",
-    ["\22"] = "V-BLOCK",     -- Ctrl-V
+    ["\22"] = "V-BLOCK", -- Ctrl-V
     c = "COMMAND",
     s = "SELECT",
     S = "S-LINE",
-    ["\19"] = "S-BLOCK",     -- Ctrl-S
+    ["\19"] = "S-BLOCK", -- Ctrl-S
     R = "REPLACE",
     r = "REPLACE",
     ["!"] = "SHELL",
@@ -595,8 +606,8 @@ local function setup_dynamic_statusline()
         "%{v:lua.file_type()}",
         " | ",
         "%{v:lua.file_size()}",
-        "%=",                 -- Right-align everything after this
-        "%l:%c  %P ",         -- Line:Column and Percentage
+        "%=",         -- Right-align everything after this
+        "%l:%c  %P ", -- Line:Column and Percentage
       })
     end,
   })

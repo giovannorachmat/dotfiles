@@ -1,26 +1,19 @@
 return {
-	-- {
-	-- 	"shaunsingh/moonlight.nvim",
-	-- 	name = "moonlight",
-	-- 	config = function()
-	-- 		vim.cmd.colorscheme("moonlight")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	name = "rose-pine",
-	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			styles = {
-	-- 				transparency = true,
-	-- 			},
-	-- 			highlight_groups = {
-	-- 				Visual = { bg = "love", blend = 60 },
-	-- 			},
-	-- 		})
-	-- 		vim.cmd.colorscheme("rose-pine")
-	-- 	end,
-	-- },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				styles = {
+					transparency = true,
+				},
+				highlight_groups = {
+					Visual = { bg = "love", blend = 60 },
+				},
+			})
+			vim.cmd.colorscheme("rose-pine")
+		end,
+	},
 	-- {
 	-- 	"neanias/everforest-nvim",
 	-- 	lazy = false,
@@ -82,20 +75,28 @@ return {
 	-- 		vim.cmd.colorscheme("eldritch")
 	-- 	end,
 	-- },
-	{
-		"catppuccin/nvim",
-		priority = 1000,
-		name = "catppuccin",
-		config = function()
-			local catppuccin = require("catppuccin")
-
-			catppuccin.setup({
-				flavor = "mocha",
-			})
-
-			vim.cmd.colorscheme("catppuccin-mocha")
-		end,
-	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	lazy = false,
+	-- 	version = false,
+	-- 	priority = 1000,
+	-- 	name = "catppuccin",
+	-- 	config = function()
+	-- 		local catppuccin = require("catppuccin")
+	--
+	-- 		catppuccin.setup({
+	-- 			integrations = {
+	-- 				nvimtree = true,
+	-- 			},
+	-- 			-- custom_highlights = {
+	-- 			-- 	LineNr = { fg = "#a6adc8" },
+	-- 			-- },
+	-- 			transparent_background = false,
+	-- 		})
+	--
+	-- 		vim.cmd.colorscheme("catppuccin-mocha")
+	-- 	end,
+	-- },
 	--
 	-- {
 	-- 	"vague2k/vague.nvim",
