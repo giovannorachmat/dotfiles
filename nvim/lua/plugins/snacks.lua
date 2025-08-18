@@ -5,8 +5,6 @@ return {
 		scroll = { enabled = false },
 		explorer = { enabled = false },
 		picker = { enabled = false },
-		picker_sources = { enabled = false },
-		picker_lsp = { enabled = false },
 		indent = { enabled = false },
 		dashboard = {
 			preset = {
