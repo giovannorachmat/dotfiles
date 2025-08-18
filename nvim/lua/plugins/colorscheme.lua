@@ -1,12 +1,5 @@
 return {
 	-- {
-	-- 	"shaunsingh/moonlight.nvim",
-	-- 	name = "moonlight",
-	-- 	config = function()
-	-- 		vim.cmd.colorscheme("moonlight")
-	-- 	end,
-	-- },
-	-- {
 	-- 	"rose-pine/neovim",
 	-- 	name = "rose-pine",
 	-- 	config = function()
@@ -84,13 +77,21 @@ return {
 	-- },
 	{
 		"catppuccin/nvim",
+		lazy = false,
+		version = false,
 		priority = 1000,
 		name = "catppuccin",
 		config = function()
 			local catppuccin = require("catppuccin")
 
 			catppuccin.setup({
-				flavor = "mocha",
+				integrations = {
+					nvimtree = true,
+				},
+				-- custom_highlights = {
+				-- 	LineNr = { fg = "#a6adc8" },
+				-- },
+				transparent_background = true,
 			})
 
 			vim.cmd.colorscheme("catppuccin-mocha")

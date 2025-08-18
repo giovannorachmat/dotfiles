@@ -185,6 +185,15 @@ if.app-name-regex-substring = 'whatsapp'
 run = ['layout floating']
 
 [[on-window-detected]]
+if.app-id = 'net.freemacsoft.AppCleaner'
+if.app-name-regex-substring = 'AppCleaner'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = ['layout floating']
+
+[[on-window-detected]]
 if.app-id = 'com.apple.finder'
 if.app-name-regex-substring = 'finder'
 run = ['layout floating']

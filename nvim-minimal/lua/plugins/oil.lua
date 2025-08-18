@@ -14,7 +14,8 @@ return {
             },
             win_options = {
                 wrap = true
-            }
+            },
+            cleanup_delay_ms = 500
         })
 
         vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
