@@ -11,9 +11,9 @@ return {
         })
 
         local builtin = require("mini.pick").builtin
-        vim.keymap.set("n", "<leader>ff", function() builtin.files() end, { desc = "Pick files" })
-        vim.keymap.set("n", "<leader>fh", function() builtin.help() end, { desc = "Pick help" })
-        vim.keymap.set("n", "<leader>fb", function() builtin.buffers() end, { desc = "Pick buffers" })
-        vim.keymap.set("n", "<leader>fg", function() builtin.grep_live() end, { desc = "Pick grep" })
+        vim.keymap.set("n", "<leader>pf", function() builtin.files() end, { desc = "Pick files" })
+        vim.keymap.set("n", "<leader>ph", function() builtin.help() end, { desc = "Pick help" })
+        vim.keymap.set("n", "<leader>pb", function() builtin.buffers() end, { desc = "Pick buffers" })
+        vim.keymap.set("n", "<leader>pg", function() builtin.grep_live() end, { desc = "Pick grep" })
     end,
 }

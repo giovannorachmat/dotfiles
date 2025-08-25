@@ -2,6 +2,22 @@
 # VPN Wireguard Management
 # ======================
 
+WG_CONNECTIONS=("prod" "kpayk")
+
+function wgu {
+    for conn in "${WG_CONNECTIONS[@]}"; do
+        echo "Connecting: $conn"
+        sudo wg-quick up "/etc/wireguard/oy-$conn.conf"
+    done
+}
+
+function wgd {
+    for conn in "${WG_CONNECTIONS[@]}"; do
+        echo "Disconnecting: $conn"
+        sudo wg-quick down "/etc/wireguard/oy-$conn.conf"
+    done
+}
+
 function wg {
   conns=("prod" "kpayk" "← Back")
   actions=("connect" "disconnect")

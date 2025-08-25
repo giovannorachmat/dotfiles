@@ -134,6 +134,9 @@ alias kzb="kustomize build"
 # Docker
 alias dd="docker desktop"
 alias ld="lazydocker"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down -v --remove-orphans"
+alias dco="docker compose"
 
 # Git
 alias gap="git add --patch"

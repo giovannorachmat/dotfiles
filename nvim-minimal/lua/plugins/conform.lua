@@ -1,6 +1,8 @@
 return {
     "stevearc/conform.nvim",
     lazy = false,
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     config = function()
         require("conform").setup({
             formatters_by_ft = {
@@ -21,7 +23,6 @@ return {
                 sql = { "sqlfmt" },
                 terraform = { "terraform_fmt" },
             },
-
             default_format_opts = {
                 timeout_ms = 2500,
                 lsp_format = "fallback",
@@ -48,5 +49,7 @@ return {
                 return { timeout_ms = 500, lsp_format = "fallback" }
             end,
         })
+        vim.keymap.set("n", "<leader>fe", function() require("conform").format({ async = true }) end,
+            { desc = "Format buffer" })
     end,
 }
