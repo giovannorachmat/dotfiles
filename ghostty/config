@@ -1,9 +1,7 @@
-theme = Eldritch
-
 cursor-style = block
 cursor-style-blink = false
 
-background-opacity = 0.2
-background-blur = true
+background-opacity = 1
+background-blur = false
 
-font-size = 16
+font-size = 9
