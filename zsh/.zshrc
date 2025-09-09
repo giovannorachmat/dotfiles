@@ -170,6 +170,9 @@ alias svi="sudo vim"
 alias minvim="NVIM_APPNAME=nvim-minimal nvim"
 alias litevim="NVIM_APPNAME=nvim-lite nvim"
 
+# Plasma
+alias pr="plasmashell --replace && systemctl --user restart plasma-plasmashell &"
+
 # ======================
 # Syntax Highlighting & Autosuggestions
 # ======================
