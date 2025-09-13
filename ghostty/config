@@ -1,7 +1,9 @@
 cursor-style = block
 cursor-style-blink = false
+shell-integration-features = no-cursor
 
-background-opacity = 1
-background-blur = false
+background-opacity = 0.9
+background-blur = true
 
-font-size = 9
+font-size = 18
+

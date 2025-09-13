@@ -42,13 +42,13 @@ case "$CURRENT_OS" in
             export BREW_PATH="/usr/local"     # Default fallback
         fi
         ;;
-    linux)
-        export BREW_PATH="/home/linuxbrew/.linuxbrew"
-        ;;
-    *)
-        echo "Warning: Unsupported OS for Homebrew: $CURRENT_OS"
-        export BREW_PATH="/usr/local"  # Fallback
-        ;;
+    # linux)
+    #     export BREW_PATH="/home/linuxbrew/.linuxbrew"
+    #     ;;
+    # *)
+    #     echo "Warning: Unsupported OS for Homebrew: $CURRENT_OS"
+    #     export BREW_PATH="/usr/local"  # Fallback
+    #     ;;
 esac
 
 # Initialize Homebrew if it exists
