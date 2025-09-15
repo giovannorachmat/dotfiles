@@ -3,7 +3,7 @@
 # ====
 enable_audio_bell no
 
-hide_window_decorations yes
+hide_window_decorations no
 
 font_family       JetBrainsMono Nerd Font Mono
 bold_font         JetBrainsMono Nerd Font Mono Extra Bold
@@ -25,10 +25,10 @@ scrollback_lines 50000
 # cursor_trail 3
 cursor_shape block
 cursor_beam_thickness 2
-cursor_blink_interval 2
+cursor_blink_interval 0
 
-background_opacity 0.5
-background_blur 1
+background_opacity 1
+# background_blur 1
 
 # Minimal Tab bar styling 
 tab_bar_edge                bottom
@@ -88,6 +88,6 @@ map cmd+t launch_tab
 
 
 # BEGIN_KITTY_THEME
-# Rosé Pine
+# Nord
 include current-theme.conf
 # END_KITTY_THEME

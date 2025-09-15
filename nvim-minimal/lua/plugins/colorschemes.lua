@@ -5,8 +5,8 @@ return {
         priority = 1000,
         config = function()
             require("catppuccin").setup({
-                flavour = "mocha",             -- latte, frappe, macchiato, mocha
-                transparent_background = true, -- disables setting the background color.
+                flavour = "mocha", -- latte, frappe, macchiato, mocha
+                -- transparent_background = true, -- disables setting the background color.
                 float = {
                     transparent = true,
                     solid = false,          -- use solid styling for floating windows, see |winborder|

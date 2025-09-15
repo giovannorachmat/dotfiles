@@ -11,6 +11,7 @@ return {
 	{ "editor.snacks_picker", enabled = false },
 	{ "lsp.snacks_picker", enabled = false },
 	{ "hardtime.nvim", enabled = false },
+	{ "lualine.nvim", enabled = false },
 	-- { "tokyonight.nvim", enabled = false },
 
 	-- { "mason.nvim",             enabled = false },
