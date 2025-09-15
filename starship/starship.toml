@@ -155,7 +155,7 @@ vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
 show_milliseconds = false
-format = "[[  n $duration](bold fg:base)]"
+format = "[[  n $duration](bold fg:base)]($style)"
 style = "bg:lavender"
 disabled = false
 show_notifications = false
