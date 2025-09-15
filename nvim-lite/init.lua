@@ -4,6 +4,7 @@
 -- ================================================================================================
 
 -- theme & transparency
+vim.cmd.colorscheme("unokai")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
@@ -141,13 +142,13 @@ vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Quick file navigation
-vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
+vim.keymap.set("n", "<leader>ef", ":Explore<CR>", { desc = "Open file explorer" })
 
 -- Better J behavior
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
 -- Quick config editing
-vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim-vanilla/init.lua<CR>", { desc = "Edit config" })
+vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim-lite/init.lua<CR>", { desc = "Edit config" })
 
 -- LSP & completions
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
@@ -166,47 +167,47 @@ vim.lsp.enable({
 })
 
 -- Packages
-vim.pack.add({
-  { src = "https://github.com/echasnovski/mini.pairs" },
-  { src = "https://github.com/echasnovski/mini.pick" },
-  { src = "https://github.com/kdheepak/lazygit.nvim" },
-  { src = "https://github.com/mbbill/undotree" },
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/tpope/vim-fugitive" },
-  { src = "https://github.com/tpope/vim-surround" },
-  { src = "https://github.com/catppuccin/nvim" },
-})
-
-require "mini.pairs".setup()
-
-require "mini.pick".setup()
-vim.keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Pick files" })
-vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Pick buffers" })
-vim.keymap.set("n", "<leader>fh", ":Pick help<CR>", { desc = "Pick help" })
-vim.keymap.set("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Pick grep live" })
-
-vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Lazygit" })
-
-vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
-
-require "oil".setup()
-require "oil".toggle_hidden()
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
-require "catppuccin".setup({
-  flavour = "mocha",                           -- latte, frappe, macchiato, mocha
-  transparent_background = true,               -- disables setting the background color.
-  float = {
-    transparent = true,
-    solid = false,                          -- use solid styling for floating windows, see |winborder|
-  },
-  term_colors = true,                       -- sets terminal colors (e.g. `g:terminal_color_0`)
-  auto_integrations = false,
-})
-
-vim.cmd.colorscheme("catppuccin")
+-- vim.pack.add({
+--   { src = "https://github.com/echasnovski/mini.pairs" },
+--   { src = "https://github.com/echasnovski/mini.pick" },
+--   { src = "https://github.com/kdheepak/lazygit.nvim" },
+--   { src = "https://github.com/mbbill/undotree" },
+--   { src = "https://github.com/neovim/nvim-lspconfig" },
+--   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+--   { src = "https://github.com/stevearc/oil.nvim" },
+--   { src = "https://github.com/tpope/vim-fugitive" },
+--   { src = "https://github.com/tpope/vim-surround" },
+--   { src = "https://github.com/catppuccin/nvim" },
+-- })
+--
+-- require "mini.pairs".setup()
+--
+-- require "mini.pick".setup()
+-- vim.keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Pick files" })
+-- vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Pick buffers" })
+-- vim.keymap.set("n", "<leader>fh", ":Pick help<CR>", { desc = "Pick help" })
+-- vim.keymap.set("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Pick grep live" })
+--
+-- vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Lazygit" })
+--
+-- vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
+--
+-- require "oil".setup()
+-- require "oil".toggle_hidden()
+-- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+--
+-- require "catppuccin".setup({
+--   flavour = "mocha",                           -- latte, frappe, macchiato, mocha
+--   transparent_background = true,               -- disables setting the background color.
+--   float = {
+--     transparent = true,
+--     solid = false,                          -- use solid styling for floating windows, see |winborder|
+--   },
+--   term_colors = true,                       -- sets terminal colors (e.g. `g:terminal_color_0`)
+--   auto_integrations = false,
+-- })
+--
+-- vim.cmd.colorscheme("catppuccin")
 
 -- ============================================================================
 -- USEFUL FUNCTIONS
@@ -245,7 +246,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- Set filetype-specific settings
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
-  pattern = { "lua", "python" },
+  pattern = { "python", "docker", "docker-compose", "terraform", "sql", "json" },
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.shiftwidth = 4
@@ -254,7 +255,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
-  pattern = { "javascript", "typescript", "json", "html", "css" },
+  pattern = { "python", "docker", "docker-compose", "terraform", "sql", "json" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
@@ -520,6 +521,8 @@ local function file_type()
   local icons = {
     lua = "[LUA]",
     python = "[PY]",
+    dockerfile = "[DOCKER]",
+    sql = "[SQL]",
     javascript = "[JS]",
     html = "[HTML]",
     css = "[CSS]",
