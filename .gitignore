@@ -171,3 +171,6 @@ zsh/.zsh_sessions
 # tmux
 .tmux/
 tmux/plugins
+
+# oil
+oil:/
