@@ -268,8 +268,8 @@ source "${XDG_CONFIG_HOME}/starship/starship.zsh"
 # ======================
 # Work related
 # ======================
-source "${ZSH_CONFIG_DIR}/gcp.zsh"
-source "${ZSH_CONFIG_DIR}/wireguard.zsh"
+source "${XDG_CONFIG_HOME}/gcloud/gcp.zsh"
+source "${XDG_CONFIG_HOME}/wireguard/wireguard.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
