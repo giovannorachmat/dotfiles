@@ -6,6 +6,7 @@ return {
         configs.setup({
             ensure_installed = {
                 "dockerfile",
+                "sql",
                 "json",
                 "lua",
                 "markdown",
