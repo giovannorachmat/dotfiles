@@ -4,7 +4,6 @@ return {
         "nvim-lua/plenary.nvim",
     },
     lazy = true,
-    ---@type snacks.Config
     opts = {
         animate = { enabled = false },
         bigfile = { enabled = false },
@@ -30,13 +29,13 @@ return {
         win = { enabled = false },
         words = { enabled = false },
         zen = { enabled = false },
+        terminal = { enabled = false },
+        dim = { enabled = false },
+        picker = { enabled = false },
 
         explorer = { enabled = true },
         bufdelete = { enabled = true },
-        dim = { enabled = true },
         lazygit = { enabled = true },
-        picker = { enabled = true },
-        terminal = { enabled = true },
     },
     keys = {
         -- { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
