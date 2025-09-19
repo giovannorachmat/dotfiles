@@ -33,11 +33,9 @@ export CURRENT_OS=$(detect_os)
 # Set Brew path based on OS
 case "$CURRENT_OS" in
     macos)
-        # macOS - check for both Intel and Apple Silicon paths
+        # macOS
         if [[ -d "/opt/homebrew" ]]; then
             export BREW_PATH="/opt/homebrew"  # Apple Silicon
-        elif [[ -d "/usr/local/Homebrew" ]]; then
-            export BREW_PATH="/usr/local"     # Intel Mac
         else
             export BREW_PATH="/usr/local"     # Default fallback
         fi
