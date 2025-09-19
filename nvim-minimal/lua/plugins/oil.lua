@@ -5,7 +5,7 @@ return {
     config = function()
         local oil = require("oil")
         oil.setup({
-            default_file_explorer = true,
+            default_file_explorer = false,
             delete_to_trash = true,
             skip_confirm_for_simple_edits = true,
             view_options = {
@@ -18,6 +18,6 @@ return {
             cleanup_delay_ms = 500
         })
 
-		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-	end,
+        vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    end,
 }
