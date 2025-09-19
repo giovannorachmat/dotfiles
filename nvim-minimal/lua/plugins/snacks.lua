@@ -6,12 +6,14 @@ return {
     lazy = true,
     ---@type snacks.Config
     opts = {
-        dim = { enabled = true },
         util = { enabled = true },
         win = { enabled = true },
         bufdelete = { enabled = true },
-        lazygit = { enabled = true },
+        lazygit = {
+            enabled = true,
+            configure = true,
+        },
     },
     keys = {
-        { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" }, }
+        { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" }, }
 }
