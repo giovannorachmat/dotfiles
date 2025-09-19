@@ -6,6 +6,7 @@ return {
         configs.setup({
             ensure_installed = {
                 "dockerfile",
+                "sql",
                 "json",
                 "lua",
                 "markdown",
@@ -15,7 +16,10 @@ return {
                 "vimdoc",
             },
             auto_install = false,
-            highlight = { enable = true },
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false
+            },
             indent = { enable = true },
 
         })
