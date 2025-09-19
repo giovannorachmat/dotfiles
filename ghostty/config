@@ -1,9 +1,9 @@
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 cursor-style = block
 cursor-style-blink = false
 
-background-opacity = 0.5
+background-opacity = 0.8
 background-blur = true
 
 font-size = 16

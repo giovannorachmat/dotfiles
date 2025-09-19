@@ -260,10 +260,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init - bash)"
 fi
 
+
 # ======================
 # Starship
 # ======================
-source "${XDG_CONFIG_HOME}/starship/starship.zsh"
+source "${ZSH_CONFIG_DIR}/starship.zsh"
 
 # ======================
 # Work related
