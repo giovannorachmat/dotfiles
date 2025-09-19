@@ -15,5 +15,8 @@ return {
         },
     },
     keys = {
-        { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" }, }
+        { "<leader>lg", function() Snacks.lazygit() end,   desc = "Open Lazygit (snacks)" },
+        { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete buffer (snacks)" },
+    }
+
 }

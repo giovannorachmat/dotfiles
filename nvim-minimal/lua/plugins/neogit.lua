@@ -5,7 +5,7 @@ return {
         "sindrets/diffview.nvim", -- optional - Diff integration
     },
     config = function()
-        vim.keymap.set("n", "<leader>ng", ":Neogit<CR>", { desc = "Neogit" })
+        vim.keymap.set("n", "<leader>ng", ":Neogit kind=floating<CR>", { desc = "Neogit" })
         vim.keymap.set("n", "<leader>do", ":DiffviewOpen<CR>", { desc = "Diffview Open" })
         vim.keymap.set("n", "<leader>dc", ":DiffviewClose<CR>", { desc = "Diffview Close" })
     end
