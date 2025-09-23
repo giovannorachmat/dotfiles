@@ -5,6 +5,13 @@ return {
     },
     opts = {
         explorer  = { enabled = true },
+        picker    = {
+            sources = {
+                explorer = {
+                    ignored = true
+                }
+            }
+        },
         bufdelete = { enabled = true },
         terminal  = { enabled = true },
         dim       = { enabled = true },
