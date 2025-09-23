@@ -165,8 +165,8 @@ alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=dow
 # Neovim
 alias snv="sudo nvim"
 alias svi="sudo vim"
-alias mvim="NVIM_APPNAME=nvim-minimal nvim"
-alias lvim="NVIM_APPNAME=nvim-lite nvim"
+alias zv="NVIM_APPNAME=nvim-lazy nvim"
+alias lv="NVIM_APPNAME=nvim-lite nvim"
 
 # Plasma
 alias pr="plasmashell --replace && systemctl --user restart plasma-plasmashell &"
