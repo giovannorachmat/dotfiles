@@ -1,0 +1,92 @@
+{
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.configFile": "/home/giovannor/.ssh/config",
+    "remote.SSH.showLoginTerminal": true,
+    "remote.SSH.lockfilesInTmp": true,
+    // formatters
+    "ruff.format.preview": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[sql]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "yassun7010.shandy-sqlfmt"
+    },
+    "[jinja-sql]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "yassun7010.vscode-shandy-sqlfmt"
+    },
+    // editors
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+        {
+            "scope": "comment",
+            "settings": {
+            "fontStyle": "italic"
+            }
+        }
+        ]
+    },
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'monospace', monospace",
+    "editor.fontSize": 15,
+    "editor.formatOnSave": false,
+    "editor.fontLigatures": true,
+    "editor.codeLens": false,
+    // "editor.lineNumbers": "relative",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.minimap.enabled": false,
+    "editor.folding": true,
+    "editor.stickyScroll.enabled": false,
+    "editor.wordWrap": "on",
+
+    "window.zoomLevel": 1.5,
+    "window.customTitleBarVisibility": "never",
+    "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "toggle",
+
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.autoSave": "afterDelay",
+
+    "explorer.compactFolders": false,
+    "extensions.ignoreRecommendations": true,
+
+    // terminal
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+        "path": "~/.config/zsh/.zshrc"
+        },
+    },
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.cursorBlinking": false,
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.scrollback": 50000,
+    "terminal.explorerKind": "external",
+
+    // workbench
+    "workbench.activityBar.location": "hidden",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    // "workbench.statusBar.visible": false,
+    "workbench.tips.enabled": false,
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.tree.indent": 18,
+    "workbench.editor.showTabs": "single",
+    "workbench.navigationControl.enabled": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "azureTerraform.survey": {
+        "surveyPromptDate": "2025-11-11T11:42:14.966Z",
+        "surveyPromptIgnoredCount": 0
+    },
+}
