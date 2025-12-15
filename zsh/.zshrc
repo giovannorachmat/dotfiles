@@ -229,23 +229,6 @@ _fzf_comprun() {
 eval "$(fzf --zsh)"
 
 # ======================
-# Neovim Config Picker
-# ======================
-
-# # Taken from Elijah Manor
-# function nvims() {
-#   items=("default" "minimal" "lite" "suckless")
-#   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-#   if [[ -z $config ]]; then
-#     echo "Nothing selected"
-#     return 0
-#   elif [[ $config == "default" ]]; then
-#     config=""
-#   fi
-#   NVIM_APPNAME=nvim-$config nvim $@
-# }
-
-# ======================
 # Python
 # ======================
 
@@ -262,18 +245,12 @@ fi
 # ======================
 # Starship
 # ======================
-source "${ZSH_CONFIG_DIR}/starship.zsh"
+source "${XDG_CONFIG_HOME}/starship/starship.zsh"
 
 # ======================
 # Work related
 # ======================
 source "${XDG_CONFIG_HOME}/gcloud/gcp.zsh"
 source "${XDG_CONFIG_HOME}/wireguard/wireguard.zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oygiovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
 
 ff
