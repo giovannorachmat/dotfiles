@@ -57,7 +57,7 @@ else
 fi
 
 # PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$PATH"
 
 # set up XDG folders
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -78,14 +78,16 @@ export BAT_THEME="Monokai Extended Bright"
 # History
 # ======================
 
-# History 
+# History
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
 ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
+BASH_COMPDUMP="$XDG_CACHE_HOME/bash/.bash_compdump-${HOST}-${ZSH_VERSION}"
 
 # Compdump
 autoload -Uz compinit; compinit -C -d $ZSH_COMPDUMP
+autoload -U +X bashcompinit; bashcompinit -C -d $ZSH_COMPDUMP
 
 # History options
 setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_ignore_dups hist_find_no_dups
@@ -95,7 +97,7 @@ setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_sa
 # ======================
 
 # Eza (better ls)
-alias ls="eza -a -h --color=always --long --git -T -L 1 --icons=always --no-user --no-permissions --no-filesize"
+alias ls="eza -a -h --color=always --long --git -T -L 1 --icons=always --no-filesize"
 
 # System info
 alias ff="clear && fastfetch"
@@ -190,6 +192,8 @@ case "$CURRENT_OS" in
         source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         # zsh-autosuggestions
         source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+        # other completions
+        source /home/linuxbrew/.linuxbrew/share/zsh/site-functions
         ;;
 esac
 
@@ -236,9 +240,10 @@ eval "$(fzf --zsh)"
 alias pyva="source .venv/bin/activate"
 alias pyvd="deactivate"
 
-# Pyenv 
+# Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init - bash)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 
@@ -252,5 +257,6 @@ source "${XDG_CONFIG_HOME}/starship/starship.zsh"
 # ======================
 source "${XDG_CONFIG_HOME}/gcloud/gcp.zsh"
 source "${XDG_CONFIG_HOME}/wireguard/wireguard.zsh"
+source "${HOME}/.dbt/dbt-completion.bash"
 
 ff
