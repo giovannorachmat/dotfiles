@@ -15,7 +15,7 @@
     },
     "[sql]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": "yassun7010.shandy-sqlfmt"
+        "editor.defaultFormatter": "yassun7010.vscode-shandy-sqlfmt"
     },
     "[jinja-sql]": {
         "editor.formatOnSave": false,
@@ -89,4 +89,5 @@
         "surveyPromptDate": "2025-11-11T11:42:14.966Z",
         "surveyPromptIgnoredCount": 0
     },
+    "explorer.confirmDelete": false,
 }

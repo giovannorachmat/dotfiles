@@ -1,12 +1,6 @@
 [user]
-  name = OY! Giovanno Rachmat
-  email = giovanno.rachmat@oyindonesia.com
-
-[credential "https://github.com"]
-	helper = 
-
-[credential "https://gist.github.com"]
-	helper = 
+	name = OY! Giovanno Rachmat
+	email = giovanno.rachmat@oyindonesia.com
 
 [core]
   autocrlf = input
@@ -44,6 +38,7 @@
 
 [init]
   master
+	defaultBranch = main
 
 [status]
   branch = true
@@ -63,3 +58,14 @@
   branch = blue
   tag = yellow
   remoteBranch = magenta
+
+[fetch]
+	prune = true
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
