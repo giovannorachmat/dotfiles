@@ -57,7 +57,7 @@ else
 fi
 
 # PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$PATH"
 
 # set up XDG folders
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -199,41 +199,6 @@ case "$CURRENT_OS" in
 esac
 
 # ======================
-# FZF Configuration
-# ======================
-
-# FZF settings
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-# FZF completion functions
-_fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
-}
-
-_fzf_compen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
-}
-
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo ${}'" "$@" ;;
-    ssh)          fzf --preview 'dig {}' "$@" ;;
-    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
-  esac
-}
-
-# Initialize fzf
-eval "$(fzf --zsh)"
-
-# ======================
 # Python
 # ======================
 
@@ -247,6 +212,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# ======================
+# FZF
+# ======================
+source "${XDG_CONFIG_HOME}/zsh/fzf.zsh"
 
 # ======================
 # Starship
@@ -259,5 +228,6 @@ source "${XDG_CONFIG_HOME}/starship/starship.zsh"
 source "${XDG_CONFIG_HOME}/gcloud/gcp.zsh"
 source "${XDG_CONFIG_HOME}/wireguard/wireguard.zsh"
 source "${HOME}/.dbt/dbt-completion.bash"
+source "${HOME}/.pulumi/completion.zsh"
 
 ff
