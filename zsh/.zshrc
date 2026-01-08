@@ -132,11 +132,12 @@ alias kz="kustomize"
 alias kzb="kustomize build"
 
 # Docker
-alias dd="docker desktop"
 alias ld="lazydocker"
+alias dd="docker desktop"
+alias dco="docker compose"
 alias dcu="docker compose up -d"
 alias dcd="docker compose down -v --remove-orphans"
-alias dco="docker compose"
+alias dcr="docker compose restart"
 
 # Git
 alias gap="git add --patch"
