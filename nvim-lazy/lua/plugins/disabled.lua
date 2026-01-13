@@ -5,6 +5,5 @@ return {
   { "mini.indentscope", enabled = false },
   { "folke/snacks.nvim", opts = {
     scroll = { enabled = false },
-    picker = { enabled = false },
   } },
 }
