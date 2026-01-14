@@ -1,6 +1,6 @@
 {
     "remote.SSH.useLocalServer": false,
-    "remote.SSH.configFile": "/home/giovannor/.ssh/config",
+    "remote.SSH.configFile": "/home/giografi/.ssh/config",
     "remote.SSH.showLoginTerminal": true,
     "remote.SSH.lockfilesInTmp": true,
     // formatters
@@ -39,10 +39,10 @@
     "editor.formatOnSave": false,
     "editor.fontLigatures": true,
     "editor.codeLens": false,
-    // "editor.lineNumbers": "relative",
-    "editor.scrollbar.vertical": "hidden",
-    "editor.scrollbar.horizontal": "hidden",
     "editor.minimap.enabled": false,
+    // "editor.lineNumbers": "relative",
+    "editor.scrollbar.vertical": "auto",
+    "editor.scrollbar.horizontal": "hidden",
     "editor.folding": true,
     "editor.stickyScroll.enabled": false,
     "editor.wordWrap": "on",
@@ -85,11 +85,12 @@
     "workbench.navigationControl.enabled": false,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "workbench.colorTheme": "Catppuccin Mocha",
-    "azureTerraform.survey": {
-        "surveyPromptDate": "2025-11-11T11:42:14.966Z",
-        "surveyPromptIgnoredCount": 0
-    },
     "explorer.confirmDelete": false,
 
-    "python.analysis.languageServerMode": "full",
+    "python.analysis.languageServerMode": "light",
+    "remote.SSH.remotePlatform": {
+        "lenovo-m715q": "linux"
+    },
+    "chat.viewSessions.orientation": "stacked",
+
 }
