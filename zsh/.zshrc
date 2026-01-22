@@ -168,7 +168,6 @@ alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=dow
 # Neovim
 alias snv="sudo nvim"
 alias svi="sudo vim"
-alias nvim="NVIM_APPNAME=nvim-lazy nvim"
 alias lv="NVIM_APPNAME=nvim-lite nvim"
 
 # Plasma
