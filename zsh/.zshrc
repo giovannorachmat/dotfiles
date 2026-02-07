@@ -57,7 +57,7 @@ else
 fi
 
 # PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/.opencode/bin:$PATH"
 
 # set up XDG folders
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -83,11 +83,9 @@ HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
 ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
-BASH_COMPDUMP="$XDG_CACHE_HOME/bash/.bash_compdump-${HOST}-${ZSH_VERSION}"
 
 # Compdump
 autoload -Uz compinit; compinit -C -d $ZSH_COMPDUMP
-autoload -U +X bashcompinit; bashcompinit -C -d $ZSH_COMPDUMP
 
 # History options
 setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_ignore_dups hist_find_no_dups
@@ -164,6 +162,7 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias cls='clear'
 alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S"
+alias aptf="apt list | fzf --multi --preview 'apt show {1}' --preview-window=down:75% | xargs -ro sudo apt install"
 
 # Neovim
 alias snv="sudo nvim"
@@ -190,13 +189,13 @@ case "$CURRENT_OS" in
         ;;
     linux)
         # fast-syntax-highlighting
-        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+        source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         # zsh-autocomplete
-        source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+        source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         # zsh-autosuggestions
-        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+        source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         # other completions
-        source /home/linuxbrew/.linuxbrew/share/zsh/site-functions
+        source $(brew --prefix)/share/zsh/site-functions
         ;;
 esac
 
@@ -233,3 +232,5 @@ source "${HOME}/.dbt/dbt-completion.bash"
 source "${HOME}/.pulumi/completion.zsh"
 
 ff
+
+. "$HOME/.local/share/../bin/env"
