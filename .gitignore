@@ -175,3 +175,4 @@ tmux/plugins
 # oil
 oil:/
 nvim-lazy/lazyvim.json
+nvim-lite/nvim-pack-lock.json
