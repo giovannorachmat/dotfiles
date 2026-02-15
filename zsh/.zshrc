@@ -186,6 +186,8 @@ case "$CURRENT_OS" in
         source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         # zsh-autosuggestions
         source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        # other completions
+        source $(brew --prefix)/share/zsh/site-functions
         ;;
     linux)
         # fast-syntax-highlighting
