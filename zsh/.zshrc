@@ -232,5 +232,3 @@ source "${HOME}/.dbt/dbt-completion.bash"
 source "${HOME}/.pulumi/completion.zsh"
 
 ff
-
-. "$HOME/.local/share/../bin/env"
