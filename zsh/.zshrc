@@ -191,13 +191,13 @@ case "$CURRENT_OS" in
         ;;
     linux)
         # fast-syntax-highlighting
-        source $XDG_DATA_HOME/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         # zsh-autocomplete
-        source $XDG_DATA_HOME/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+        source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         # zsh-autosuggestions
-        source $XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
         # other completions
-        source $XDG_DATA_HOME/zsh/site-functions
+        source /usr/share/zsh/site-functions
         ;;
 esac
 
