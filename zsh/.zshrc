@@ -189,7 +189,7 @@ case "$CURRENT_OS" in
         # other completions
         source $(brew --prefix)/share/zsh/site-functions
         ;;
-    linux)
+    linux) # Arch specific
         # fast-syntax-highlighting
         source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         # zsh-autocomplete
@@ -224,6 +224,11 @@ source "${XDG_CONFIG_HOME}/zsh/fzf.zsh"
 # Starship
 # ======================
 source "${XDG_CONFIG_HOME}/starship/starship.zsh"
+
+# ======================
+# zoxide
+# ======================
+eval "$(zoxide init zsh)"
 
 # ======================
 # Work related
