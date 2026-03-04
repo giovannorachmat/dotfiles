@@ -32,3 +32,6 @@ save_to_clipboard = true
 
 [terminal]
 shell = "/opt/homebrew/bin/zsh"
+
+[terminal]
+osc52 = "CopyPaste"

@@ -11,3 +11,6 @@ font-family-bold = JetBrainsMono Nerd Font Mono Extra Bold
 font-family-bold-italic = JetBrainsMono Nerd Font Mono Extra Bold Italic
 
 font-size = 16
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
