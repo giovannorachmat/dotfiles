@@ -1,16 +1,35 @@
-theme = Catppuccin Mocha
+# Font Configuration
+font-size = 16
 
+# Window Configuration
+window-decoration = false
+window-padding-x = 5
+window-padding-y = 5
+background-opacity = 0.8
+background-blur-radius = 32
+
+# Cursor Configuration
 cursor-style = block
 cursor-style-blink = false
 
-background-opacity = 0.8
-background-blur = true
+# Scrollback
+scrollback-limit = 10000
 
-font-family = JetBrainsMono Nerd Font Mono
-font-family-bold = JetBrainsMono Nerd Font Mono Extra Bold
-font-family-bold-italic = JetBrainsMono Nerd Font Mono Extra Bold Italic
+# Terminal features
+mouse-hide-while-typing = true
 
-font-size = 16
+# Disable annoying copied to clipboard
+app-notifications = no-clipboard-copy,no-config-reload
 
-# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
-async-backend = epoll
+# Material 3 UI elements
+# unfocused-split-opacity = 0.7
+# unfocused-split-fill = #44464f
+
+# Shell integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,no-cursor
+
+# Rando stuff
+gtk-single-instance = true
+
+theme = catppuccin-mocha.conf

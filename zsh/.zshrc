@@ -192,11 +192,11 @@ case "$CURRENT_OS" in
         ;;
     linux) # Arch specific
         # fast-syntax-highlighting
-        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         # zsh-autocomplete
-        source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+        source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         # zsh-autosuggestions
-        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         # other completions
         source /usr/share/zsh/site-functions
         ;;
