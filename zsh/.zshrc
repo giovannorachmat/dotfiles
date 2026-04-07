@@ -138,6 +138,7 @@ alias dcu="docker compose up -d"
 alias dcd="docker compose down -v --remove-orphans"
 alias dcr="docker compose restart"
 export DOCKER_HOST=unix:///var/run/docker.sock
+
 # Git
 alias gap="git add --patch"
 alias gb="git branch"
@@ -175,6 +176,9 @@ alias pr="plasmashell --replace && systemctl --user restart plasma-plasmashell &
 
 # nmcli
 alias vpnc="nmcli connection | fzf --multi --preview 'nmcli connection show {1}' --preview-window=down:75% --header-lines 1 --border=rounded --header-first --reverse | xargs -ro nmcli connection up"
+
+# Kill chrome when profile locked
+alias rm-chrome="rm -f $XDG_CONFIG_HOME/google-chrome/Singleton*"
 
 # ======================
 # Syntax Highlighting & Autosuggestions
