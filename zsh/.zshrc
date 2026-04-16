@@ -116,6 +116,7 @@ alias td="tmux detach"
 
 # Terraform
 alias tf="terraform"
+alias tf="tofu"
 
 # Kubernetes & Docker
 
@@ -233,9 +234,13 @@ eval "$(zoxide init zsh)"
 # ======================
 # Work related
 # ======================
-source "${XDG_CONFIG_HOME}/gcloud/gcp.zsh"
-source "${XDG_CONFIG_HOME}/wireguard/wireguard.zsh"
-source "${HOME}/.dbt/dbt-completion.bash"
-source "${HOME}/.pulumi/completion.zsh"
+case "$(uname -s)" in
+    Darwin*)
+        source "${HOME}/git/qol/scripts/wrappers.zsh"
+        ;;
+    Linux*)
+        source "${HOME}/Work/repo/qol/scripts/wrappers.zsh"
+        ;;
+esac
 
 ff
