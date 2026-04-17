@@ -57,7 +57,7 @@ else
 fi
 
 # PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/.opencode/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/.opencode/bin:$HOME/google-cloud-sdk/bin:$PATH"
 
 # set up XDG folders
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -138,6 +138,7 @@ alias dcu="docker compose up -d"
 alias dcd="docker compose down -v --remove-orphans"
 alias dcr="docker compose restart"
 export DOCKER_HOST=unix:///var/run/docker.sock
+
 # Git
 alias gap="git add --patch"
 alias gb="git branch"
@@ -176,6 +177,9 @@ alias pr="plasmashell --replace && systemctl --user restart plasma-plasmashell &
 # nmcli
 alias vpnc="nmcli connection | fzf --multi --preview 'nmcli connection show {1}' --preview-window=down:75% --header-lines 1 --border=rounded --header-first --reverse | xargs -ro nmcli connection up"
 
+# Kill chrome when profile locked
+alias rm-chrome="rm -f $XDG_CONFIG_HOME/google-chrome/Singleton*"
+
 # ======================
 # Syntax Highlighting & Autosuggestions
 # ======================
@@ -192,11 +196,11 @@ case "$CURRENT_OS" in
         ;;
     linux) # Arch specific
         # fast-syntax-highlighting
-        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         # zsh-autocomplete
-        source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+        source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         # zsh-autosuggestions
-        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         # other completions
         source /usr/share/zsh/site-functions
         ;;
