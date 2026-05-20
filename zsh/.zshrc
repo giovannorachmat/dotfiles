@@ -57,7 +57,7 @@ else
 fi
 
 # PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/.opencode/bin:$HOME/google-cloud-sdk/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/.opencode/bin:$HOME/google-cloud-sdk/bin:$HOME/go/bin:$PATH"
 
 # set up XDG folders
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -153,6 +153,9 @@ alias gnb="git checkout -b"
 alias gp="git push"
 alias gs="git status"
 alias gpu="git pull"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
+alias gwl="git worktree list"
 alias lg="lazygit"
 
 # modified commands
