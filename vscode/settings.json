@@ -84,7 +84,6 @@
     "workbench.editor.showTabs": "single",
     "workbench.navigationControl.enabled": false,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "workbench.colorTheme": "Tokyo Night",
     "explorer.confirmDelete": false,
 
     "python.analysis.languageServerMode": "light",
@@ -93,5 +92,7 @@
         "192.168.50.2": "linux"
     },
     "chat.viewSessions.orientation": "stacked",
+    "workbench.colorTheme": "Yukinord",
+    "editor.multiCursorModifier": "alt",
 
 }
