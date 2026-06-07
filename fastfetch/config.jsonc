@@ -12,9 +12,8 @@ fastfetch --config hyde/*.jsonc
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "kitty",
-    // https://www.pngplay.com/image/451836
-    "source": "~/git/dotfiles/fastfetch/mandalorian.png",
-    "height": 21
+    "source": "~/.config/fastfetch/mandalorian.png",
+    "height": 18
   },
   // "general": {
   //   "multithreading": true
@@ -23,20 +22,20 @@ fastfetch --config hyde/*.jsonc
     "separator": " : "
   },
   "modules": [
+    // "break",
     "break",
-    "break",
-    {
-      "type": "title",
-      "key": "  ",
-      "format": "{6} {7} {8}"
-    },
     {
       "type": "custom",
       "format": "┌──────────────────────────────────────────┐"
     },
+    // {
+    //   "type": "title",
+    //   "key": "  ",
+    //   "format": "{6}"
+    // },
     {
       "type": "os",
-      "key": "  󰣇 OS",
+      "key": "   OS",
       "format": "{2}",
       "keyColor": "red"
     },
@@ -82,7 +81,7 @@ fastfetch --config hyde/*.jsonc
     },
     {
       "type": "memory",
-      "key": "   Memory ",
+      "key": "  󰍛 Memory ",
       "keyColor": "magenta"
     },
     {
