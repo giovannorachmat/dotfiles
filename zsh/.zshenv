@@ -1,0 +1,25 @@
+# set up XDG folders
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export ZSH_CONFIG_DIR="$HOME/.config/zsh"
+
+# PATH configuration
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$XDG_CONFIG_HOME/opencode/bin:$HOME/google-cloud-sdk/bin:$HOME/go/bin:$PATH"
+
+# Core
+export TERM=xterm-256color
+export LANG=en_US.UTF-8
+export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# bat theme
+export BAT_THEME="Monokai Extended Bright"
+
+# Starship configuration
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+# Docker
+export DOCKER_HOST=unix:///var/run/docker.sock

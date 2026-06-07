@@ -2,16 +2,13 @@
 # Starship
 # ======================
 
-# Starship configuration
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-
 # Fix potential widget conflicts
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
     zle -N zle-keymap-select "";
 fi
 
-# compdef starship
+compdef starship
 
 autoload -U is-at-least
 
