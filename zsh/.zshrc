@@ -153,3 +153,6 @@ case "$(uname -s)" in
 esac
 
 ff
+
+# opencode
+export PATH=/home/giografi/.opencode/bin:$PATH

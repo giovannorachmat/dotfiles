@@ -1,0 +1,139 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  // misc
+  "proxy": "",
+  "redact_private_values": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+
+  // visuals
+  "theme": "Ayu Dark",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "project_panel": {
+    "auto_fold_dirs": false,
+  },
+  "tab_bar": {
+    "show": false,
+  },
+
+  // terminals
+  "terminal": {
+    "font_size": 13.0,
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "cursor_shape": "block",
+    "blinking": "off",
+    "max_scroll_history_lines": 50000,
+  },
+
+  // editors
+  "soft_wrap": "editor_width",
+  "base_keymap": "VSCode",
+  "multi_cursor_modifier": "alt",
+  "minimap": {
+    "show": "never",
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false,
+      "vertical": true,
+    },
+  },
+
+  // fonts
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "buffer_font_fallbacks": ["monospace", "monospace"],
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+
+  // cursors
+  "cursor_shape": "block",
+  "cursor_blink": false,
+  "sticky_scroll": {
+    "enabled": false,
+  },
+
+  // agents
+  "agent_servers": {
+    "cursor": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+
+  // languages & lsp
+  "file_types": {
+    "Dockerfile": ["Dockerfile.*"]
+  },
+  "languages": {
+    "Python": {
+      "format_on_save": "on",
+      "language_servers": [
+        "ruff",
+        "pyright",
+      ]
+    },
+    "Markdown": {
+      "format_on_save": "on",
+      "indent_list_on_tab": false,
+    },
+    "JSON": {
+      "format_on_save": "on",
+    },
+    "Shell Script": {
+      "format_on_save": "on",
+    },
+    "YAML": {
+      "format_on_save": "on",
+    }
+  },
+  "lsp": {
+    "json-language-server": {
+      "settings": {
+      }
+    },
+    "pyright": {
+      "settings": {
+      }
+    },
+    "ruff": {
+      "settings": {
+      }
+    },
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "keyOrdering": true,
+          "format": {
+            "singleQuote": false
+          }
+        }
+      }
+    }
+  }
+}

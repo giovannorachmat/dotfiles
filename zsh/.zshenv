@@ -6,7 +6,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
 # PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$XDG_CONFIG_HOME/opencode/bin:$HOME/google-cloud-sdk/bin:$HOME/go/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/google-cloud-sdk/bin:$HOME/go/bin:$HOME.opencode/bin:$PATH"
 
 # Core
 export TERM=xterm-256color
