@@ -2,39 +2,27 @@
 # OS Detection
 # ======================
 
-# Detect current OS
 detect_os() {
     case "$(uname -s)" in
-        Darwin*)
-            echo "macos"
-            ;;
-        Linux*)
-            echo "linux"
-            ;;
-        CYGWIN*|MINGW32*|MSYS*|MINGW*)
-            echo "windows"
-            ;;
-        *)
-            echo "unknown"
-            ;;
+        Darwin*)  echo "macos" ;;
+        Linux*)   echo "linux" ;;
+        CYGWIN*|MINGW32*|MSYS*|MINGW*) echo "windows" ;;
+        *)        echo "unknown" ;;
     esac
 }
 
-# Set OS variable
 export CURRENT_OS=$(detect_os)
 
 # ======================
 # Homebrew
 # ======================
 
-# Set Brew path based on OS
 case "$CURRENT_OS" in
     macos)
-        # macOS
         if [[ -d "/opt/homebrew" ]]; then
-            export BREW_PATH="/opt/homebrew"  # Apple Silicon
+            export BREW_PATH="/opt/homebrew"
         else
-            export BREW_PATH="/usr/local"     # Default fallback
+            export BREW_PATH="/usr/local"
         fi
         ;;
     linux)
@@ -42,11 +30,10 @@ case "$CURRENT_OS" in
         ;;
     *)
         echo "Warning: Unsupported OS for Homebrew: $CURRENT_OS"
-        export BREW_PATH="/usr/local"  # Fallback
+        export BREW_PATH="/usr/local"
         ;;
 esac
 
-# Initialize Homebrew if it exists
 if [[ -x "$BREW_PATH/bin/brew" ]]; then
     eval "$($BREW_PATH/bin/brew shellenv)"
 else
@@ -71,16 +58,12 @@ case "$CURRENT_OS" in
         fi
         ;;
     linux)
-        if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-          # fast-syntax-highlighting
-          source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-          # zsh-autocomplete
-          source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-          # zsh-autosuggestions
-          source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-          # other completions
-          # source /usr/share/zsh/site-functions
-        fi
+        [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+            source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        [[ -f /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && \
+            source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+        [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+            source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         ;;
 esac
 
@@ -92,7 +75,6 @@ HISTFILE="$XDG_CACHE_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
-# options
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_SPACE
@@ -102,7 +84,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 
 # ======================
-# shell behavior
+# Shell behavior
 # ======================
 
 setopt AUTOCD
@@ -116,7 +98,7 @@ setopt NUMERIC_GLOB_SORT
 ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 
 autoload -Uz compinit
-compinit -C -d $ZSH_COMPDUMP
+compinit -C -d "$ZSH_COMPDUMP"
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -129,12 +111,12 @@ eval "$(zoxide init zsh)"
 # ======================
 
 if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init - bash)"
+    eval "$(pyenv init - zsh)"
     eval "$(pyenv virtualenv-init -)"
 fi
 
 # ======================
-# source config files
+# Source config files
 # ======================
 
 source "$ZDOTDIR/fzf.zsh"
@@ -145,16 +127,15 @@ source "$ZDOTDIR/starship.zsh"
 # Work related
 # ======================
 
-case "$(uname -s)" in
-    Darwin*)
-        source "${HOME}/git/qol/scripts/wrappers.zsh"
+case "$CURRENT_OS" in
+    macos)
+        [[ -f "${HOME}/git/qol/scripts/wrappers.zsh" ]] && \
+            source "${HOME}/git/qol/scripts/wrappers.zsh"
         ;;
-    Linux*)
-        source "${HOME}/Work/repo/qol/scripts/wrappers.zsh"
+    linux)
+        [[ -f "${HOME}/Work/repo/qol/scripts/wrappers.zsh" ]] && \
+            source "${HOME}/Work/repo/qol/scripts/wrappers.zsh"
         ;;
 esac
 
 ff
-
-# opencode
-export PATH=/home/giografi/.opencode/bin:$PATH
