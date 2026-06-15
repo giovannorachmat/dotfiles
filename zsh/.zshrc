@@ -59,14 +59,16 @@ fi
 
 case "$CURRENT_OS" in
     macos)
+        if [[ -f $(brew --prefix)/share/zsh-f-sy-h/F-Sy-H.plugin.zsh ]]; then
         # fast-syntax-highlighting
-        source $XDG_CONFIG_HOME/f-sy-h/F-Sy-H.plugin.zsh
+        source $(brew --prefix)/share/zsh-f-sy-h/F-Sy-H.plugin.zsh
         # zsh-autocomplete
         source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         # zsh-autosuggestions
         source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         # other completions
         source $(brew --prefix)/share/zsh/site-functions
+        fi
         ;;
     linux)
         if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
