@@ -114,16 +114,13 @@
   },
   "lsp": {
     "json-language-server": {
-      "settings": {
-      }
+      "settings": {}
     },
     "pyright": {
-      "settings": {
-      }
+      "settings": {}
     },
     "ruff": {
-      "settings": {
-      }
+      "settings": {}
     },
     "yaml-language-server": {
       "settings": {
