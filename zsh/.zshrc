@@ -123,19 +123,4 @@ source "$ZDOTDIR/fzf.zsh"
 source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/starship.zsh"
 
-# ======================
-# Work related
-# ======================
-
-case "$CURRENT_OS" in
-    macos)
-        [[ -f "${HOME}/git/qol/scripts/wrappers.zsh" ]] && \
-            source "${HOME}/git/qol/scripts/wrappers.zsh"
-        ;;
-    linux)
-        [[ -f "${HOME}/Work/repo/qol/scripts/wrappers.zsh" ]] && \
-            source "${HOME}/Work/repo/qol/scripts/wrappers.zsh"
-        ;;
-esac
-
 ff
