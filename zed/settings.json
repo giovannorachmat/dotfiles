@@ -8,6 +8,34 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // misc
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "ssh_connections": [
+    {
+      "host": "mini-pc",
+      "username": "giografi",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/giografi"
+          ]
+        }
+      ]
+    }
+  ],
   "proxy": "",
   "redact_private_values": true,
   "telemetry": {
@@ -31,6 +59,7 @@
     "dark": "Zed (Default)",
   },
   "project_panel": {
+    "dock": "right",
     "auto_fold_dirs": false,
   },
   "tab_bar": {

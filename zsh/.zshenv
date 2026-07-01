@@ -4,9 +4,28 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export ZSH_CONFIG_DIR="$HOME/.config/zsh"
+export XDG_VIDEOS_HOME="$HOME/Videos"
+export XDG_PICTURES_HOME="$HOME/Pictures"
 
-# PATH configuration
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/$BREW_PATH/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/google-cloud-sdk/bin:$HOME/go/bin:$HOME.opencode/bin:$PATH"
+# PATH configuration — Homebrew path removed, it's handled in .zshrc via brew shellenv
+# export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:$HOME/.rd/bin:$HOME/.pulumi/bin:/usr/pulumi/bin:$HOME/google-cloud-sdk/bin:$HOME/go/bin:$HOME/.opencode/bin:$PATH"
+
+paths=(
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    "$HOME/.cargo/bin"
+    "/usr/local/bin"
+    "$HOME/.rd/bin"
+    "$HOME/.pulumi/bin"
+    "/usr/pulumi/bin"
+    "$HOME/google-cloud-sdk/bin"
+    "$HOME/go/bin"
+    "$HOME/.opencode/bin"
+    "$PATH"
+)
+
+# Join with colons
+export PATH=$(IFS=:; echo "${paths[*]}")
 
 # Core
 export TERM=xterm-256color
@@ -23,3 +42,4 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # Docker
 export DOCKER_HOST=unix:///var/run/docker.sock
+export DOCKER_MCP_IN_CONTAINER=1
