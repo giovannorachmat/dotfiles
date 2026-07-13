@@ -2,7 +2,7 @@
 # [include] sections are processed in the order you write them
 # Files in $CONFIG_DIR/topgrade.d/ are automatically included before this file
 [include]
-# paths = ["/etc/topgrade.toml"]
+# paths = ["~/.config/topgrade/topgrade.toml"]
 
 
 [misc]
@@ -28,16 +28,34 @@
 # sudo_command = "sudo"
 
 # Disable specific steps - same options as the command line flag
-# disable = ["system", "emacs"]
+disable = [
+  "firmware",
+  "claude_code",
+  "antigravity",
+  "helm",
+  "tmux",
+  "vim",
+  "node",
+  "containers",
+]
 
 # Run these steps before all others
-# first = ["chezmoi"]
+first = ["system"]
 
 # Run these steps after all others
-# last = ["system"]
+last = [
+  "flatpak",
+  "vscodium",
+  "vim",
+  "uv",
+  "pip3",
+  "brew_cask",
+  "brew_formula",
+  "claude_code",
+]
 
 # Ignore failures for these steps
-# ignore_failures = ["powershell"]
+ignore_failures = ["pip3"]
 
 # List of remote machines with Topgrade installed on them
 # remote_topgrades = ["toothless", "pi", "parnas"]
@@ -58,7 +76,7 @@
 # display_time = true
 
 # Don't ask for confirmations (no default value)
-# assume_yes = true
+assume_yes = true
 
 # Whether to ask what to do after a step fails (default: true)
 # ask_retry = true
@@ -83,7 +101,7 @@
 # tmux_session_mode = "attach_if_not_in_session"
 
 # Cleanup temporary or old files (default: false)
-# cleanup = true
+cleanup = true
 
 # Send a notification for every step (default: false)
 # notify_each_step = false
@@ -133,6 +151,7 @@
 # Commands to run after anything
 [post_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
+# "Reload shell" = "exec $SHELL"
 
 
 # Custom commands
@@ -142,7 +161,7 @@
 
 
 [python]
-# enable_pip_review = true                         ###disabled by default
+enable_pip_review = true ###disabled by default
 # enable_pip_review_local = true                   ###disabled by default
 # enable_pipupgrade = true                         ###disabled by default
 # pipupgrade_arguments = "-y -u --pip-path pip"    ###disabled by default
@@ -192,7 +211,7 @@
 
 # For the BrewFormula step
 # Execute `brew autoremove` after the step.
-# autoremove = true
+autoremove = true
 
 # For the BrewFormula step
 # Upgrade formulae built from the HEAD branch; `brew upgrade --fetch-HEAD`
@@ -209,7 +228,7 @@
 # yay_arguments = "--nodevel"
 
 # Arguments to pass dnf when updating packages
-# dnf_arguments = "--refresh"
+dnf_arguments = "--refresh -y"
 
 # aura_aur_arguments = "-kx"
 
@@ -368,7 +387,7 @@
 
 [firmware]
 # Offer to update firmware; if false just check for and display available updates
-# upgrade = true
+upgrade = false
 
 
 [vagrant]
@@ -384,7 +403,7 @@
 
 [flatpak]
 # Use sudo for updating the system-wide installation
-# use_sudo = true
+use_sudo = true
 
 
 [distrobox]
@@ -399,7 +418,7 @@
 
 # Run 'docker system prune' to clean up unused containers, networks, and build cache
 # (default: false)
-# system_prune = false
+system_prune = true
 
 # Use sudo for updating containers. Necessary for non-rootless installs.
 # (default: false)
