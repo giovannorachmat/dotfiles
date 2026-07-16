@@ -37,22 +37,15 @@ disable = [
   "vim",
   "node",
   "containers",
+  "antigravity_cli",
 ]
 
 # Run these steps before all others
-first = ["system"]
+first = ["system", "flatpak"]
+
+last = ["vscodium", "uv", "pip3", "brew_cask", "brew_formula"]
 
 # Run these steps after all others
-last = [
-  "flatpak",
-  "vscodium",
-  "vim",
-  "uv",
-  "pip3",
-  "brew_cask",
-  "brew_formula",
-  "claude_code",
-]
 
 # Ignore failures for these steps
 ignore_failures = ["pip3"]
