@@ -37,7 +37,6 @@ disable = [
   "vim",
   "node",
   "containers",
-  "antigravity_cli",
 ]
 
 # Run these steps before all others
