@@ -41,20 +41,5 @@ export BAT_THEME="Monokai Extended Bright"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # Docker
+export DOCKER_HOST=unix:///var/run/docker.sock
 export DOCKER_MCP_IN_CONTAINER=1
-
-case "$CURRENT_OS" in
-    macos)
-        export DOCKER_HOST=unix:///$XDG_CONFIG_HOME/colima/docker.sock
-        ;;
-    linux)
-        export DOCKER_HOST=unix:///var/run/docker.sock
-        ;;
-esac
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/giovannorachmat/google-cloud-sdk/completion.zsh.inc'; fi
