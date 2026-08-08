@@ -40,14 +40,15 @@ zstyle '*:compinit' arguments -C -d "$ZSH_COMPDUMP"
 paths=(
     "$HOME/bin"
     "$HOME/.local/bin"
-    "$HOME/.cargo/bin"
     "/usr/local/bin"
+    "$HOME/.cargo/bin"
     "$HOME/.rd/bin"
     "$HOME/.pulumi/bin"
     "/usr/pulumi/bin"
     "$HOME/google-cloud-sdk/bin"
     "$HOME/go/bin"
     "$HOME/.opencode/bin"
+    "$HOME/.lmstudio/bin"
     "$PATH"
 )
 
@@ -63,7 +64,6 @@ export LANG=en_US.UTF-8
 export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 export EDITOR="nvim"
 export VISUAL="nvim"
-
 
 # ======================
 # Misc
@@ -88,7 +88,13 @@ case "$CURRENT_OS" in
 esac
 
 # gcloud sdk & completion
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then 
+  . "$HOME/google-cloud-sdk/path.zsh.inc";
+fi
 
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
+  . "$HOME/google-cloud-sdk/completion.zsh.inc";
+fi
+
+# remove compdump in zdotdir for every zsh session
 rm -f "$ZDOTDIR/.zcompdump" "$ZDOTDIR/.zcompdump.zwc"
