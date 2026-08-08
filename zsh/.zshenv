@@ -64,6 +64,11 @@ export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+
+# ======================
+# Misc
+# ======================
+
 # bat theme
 export BAT_THEME="Monokai Extended Bright"
 
