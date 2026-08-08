@@ -26,14 +26,14 @@ prefix = "ctrl+b"
 
 # Prefix-mode actions
 # help = "prefix+?"
-# settings = "prefix+s"
-# detach = "prefix+q"
+settings = "prefix+s"
+detach = "prefix+q"
 reload_config = "prefix+shift+r"
-# open_notification_target = "prefix+o"
+open_notification_target = "prefix+o"
 workspace_picker = "prefix+w"
 new_workspace = "prefix+c"
-# goto = "prefix+g"
-# new_worktree = "prefix+shift+g"
+goto = "prefix+g"
+new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
@@ -43,36 +43,35 @@ new_workspace = "prefix+c"
 # previous_agent = ""     # optional, unset by default
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
-# remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
+remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 new_tab = "prefix+t"
-# rename_tab = "prefix+shift+t"
-# previous_tab = "prefix+p"
-# next_tab = "prefix+n"
+rename_tab = "prefix+shift+t"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
-# close_tab = "prefix+shift+x"
-# rename_pane = "prefix+shift+p"
-# edit_scrollback = "prefix+e"
-# cycle_pane_next = "prefix+tab"
-# cycle_pane_previous = "prefix+shift+tab"
-# last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
+close_tab = "prefix+shift+x"
+rename_pane = "prefix+shift+p"
+edit_scrollback = "prefix+e"
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
 split_vertical = "prefix+|"
 split_horizontal = "prefix+minus"
 # close_pane = "prefix+x"
 # zoom = "prefix+z"       # legacy alias: fullscreen
-# resize_mode = "prefix+r"
-# toggle_sidebar = "prefix+b"
-# focus_pane_left = "prefix+h"
-# focus_pane_right = "prefix+l"
-focus_pane_down = "ctrl+j"
-focus_pane_up = "ctrl+k"
+resize_mode = "prefix+r"
+toggle_sidebar = "prefix+b"
+focus_pane_left = "ctrl+shift+h"
+focus_pane_right = "ctrl+shift+l"
+focus_pane_down = "ctrl+shift+j"
+focus_pane_up = "ctrl+shift+k"
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
-# navigate_pane_left = "h"      # left arrow always focuses the pane to the left
-# navigate_pane_right = "l"     # right arrow always focuses the pane to the right
+navigate_pane_left = "h"      # left arrow always focuses the pane to the left
+navigate_pane_right = "l"     # right arrow always focuses the pane to the right
 
 # Custom commands use the same binding syntax.
 # type = "shell" runs detached in the background.
