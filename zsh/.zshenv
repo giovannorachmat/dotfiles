@@ -45,7 +45,7 @@ export DOCKER_MCP_IN_CONTAINER=1
 
 case "$CURRENT_OS" in
     macos)
-        export DOCKER_HOST=unix:///$XDG_CONFIG_HOME/colima/docker.sock
+        export DOCKER_HOST=unix://$XDG_CONFIG_HOME/colima/docker.sock
         ;;
     linux)
         export DOCKER_HOST=unix:///var/run/docker.sock
