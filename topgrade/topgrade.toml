@@ -28,15 +28,27 @@
 # sudo_command = "sudo"
 
 # Disable specific steps - same options as the command line flag
+
 disable = [
-  "firmware",
-  "claude_code",
   "antigravity",
+  "bun",
+  "bun_packages",
+  "claude_code",
+  "claude_code_plugins",
+  "colima",
+  "containers",
+  "firmware",
+  "gcloud",
+  "gem",
   "helm",
+  "node",
+  "pnpm",
+  "ruby_gems",
+  "tldr",
   "tmux",
   "vim",
-  "node",
-  "containers",
+  "vscode",
+  "vscodium",
 ]
 
 # Run these steps before all others

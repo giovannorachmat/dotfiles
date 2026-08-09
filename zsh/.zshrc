@@ -1,19 +1,4 @@
 # ======================
-# OS Detection
-# ======================
-
-detect_os() {
-    case "$(uname -s)" in
-        Darwin*)  echo "macos" ;;
-        Linux*)   echo "linux" ;;
-        CYGWIN*|MINGW32*|MSYS*|MINGW*) echo "windows" ;;
-        *)        echo "unknown" ;;
-    esac
-}
-
-export CURRENT_OS=$(detect_os)
-
-# ======================
 # Homebrew
 # ======================
 
@@ -47,14 +32,14 @@ fi
 case "$CURRENT_OS" in
     macos)
         if [[ -f $(brew --prefix)/share/zsh-f-sy-h/F-Sy-H.plugin.zsh ]]; then
-        # fast-syntax-highlighting
-        source $(brew --prefix)/share/zsh-f-sy-h/F-Sy-H.plugin.zsh
-        # zsh-autocomplete
-        source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-        # zsh-autosuggestions
-        source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-        # other completions
-        source $(brew --prefix)/share/zsh/site-functions
+          # fast-syntax-highlighting
+          source $(brew --prefix)/share/zsh-f-sy-h/F-Sy-H.plugin.zsh
+          # zsh-autocomplete
+          source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+          # zsh-autosuggestions
+          source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+          # other completions
+          fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
         fi
         ;;
     linux)
@@ -68,10 +53,23 @@ case "$CURRENT_OS" in
 esac
 
 # ======================
+# Completion
+# ======================
+
+autoload -Uz compinit
+compinit -C -d "$ZSH_COMPDUMP"
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# initialize zoxide
+eval "$(zoxide init zsh)"
+
+# ======================
 # History
 # ======================
 
-HISTFILE="$XDG_CACHE_HOME/zsh/history"
+HISTFILE="$XDG_CACHE_HOME/zsh/history-${HOST}"
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
@@ -90,21 +88,6 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt AUTOCD
 setopt NOBEEP
 setopt NUMERIC_GLOB_SORT
-
-# ======================
-# Completion
-# ======================
-
-ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
-
-autoload -Uz compinit
-compinit -C -d "$ZSH_COMPDUMP"
-
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-# initialize zoxide
-eval "$(zoxide init zsh)"
 
 # ======================
 # Python
