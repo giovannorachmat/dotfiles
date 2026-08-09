@@ -24,6 +24,7 @@ export XDG_PICTURES_HOME="$HOME/Pictures"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export ZSH_CONFIG_DIR="$HOME/.config/zsh"
+export ZDOTDIR="$ZSH_CONFIG_DIR"
 
 # compdump
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-${HOST}"
@@ -97,4 +98,4 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
 fi
 
 # remove compdump in zdotdir for every zsh session
-rm -f "$ZDOTDIR/.zcompdump" "$ZDOTDIR/.zcompdump.zwc"
+rm -f "$ZDOTDIR/.zcompdump" "$ZDOTDIR/.zcompdump.zwc" "$HOME/.zcompdump" "$HOME/.zcompdump.zwc"
