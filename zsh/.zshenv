@@ -29,7 +29,6 @@ export ZDOTDIR="$ZSH_CONFIG_DIR"
 # compdump
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-${HOST}"
 mkdir -p "$XDG_CACHE_HOME/zsh"
-zstyle '*:compinit' arguments -C -d "$ZSH_COMPDUMP"
 
 # ======================
 # Paths
