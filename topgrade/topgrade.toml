@@ -34,7 +34,7 @@ disable = [
   "bun",
   "bun_packages",
   "claude_code",
-  "claude_code_plugins",
+  # "claude_code_plugins",
   "colima",
   "containers",
   "firmware",
@@ -232,7 +232,7 @@ autoremove = true
 # yay_arguments = "--nodevel"
 
 # Arguments to pass dnf when updating packages
-dnf_arguments = "--refresh -y"
+dnf_arguments = "--allowerasing --refresh -y"
 
 # aura_aur_arguments = "-kx"
 
