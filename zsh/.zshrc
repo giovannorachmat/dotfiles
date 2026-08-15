@@ -45,6 +45,7 @@ case "$CURRENT_OS" in
     linux)
         [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
             source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+            fpath+=( "$XDG_DATA_HOME/zsh/functions" )
         [[ -f /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && \
             source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
