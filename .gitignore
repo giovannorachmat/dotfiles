@@ -179,3 +179,5 @@ nvim-lite/nvim-pack-lock.json
 
 # opencode
 opencode/bin/
+
+.commandcode/
