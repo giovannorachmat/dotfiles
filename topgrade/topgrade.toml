@@ -2,7 +2,7 @@
 # [include] sections are processed in the order you write them
 # Files in $CONFIG_DIR/topgrade.d/ are automatically included before this file
 [include]
-# paths = ["~/.config/topgrade/topgrade.toml"]
+paths = ["~/.config/topgrade/local.toml"]
 
 
 [misc]
@@ -42,6 +42,7 @@ disable = [
   "gem",
   "helm",
   "node",
+  "ollama",
   "pnpm",
   "ruby_gems",
   "tldr",
