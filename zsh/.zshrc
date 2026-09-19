@@ -45,11 +45,19 @@ case "$CURRENT_OS" in
     linux)
         [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
             source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-            fpath+=( "$XDG_DATA_HOME/zsh/functions" )
-        [[ -f /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && \
-            source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-        [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
-            source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        fpath+=("$XDG_DATA_HOME/zsh/functions")
+        fpath+=("$BREW_PATH/share/zsh/site-functions")
+        # Probe brew keg first, then Fedora's /usr/share package
+        zsh_autocomplete=""
+        for cand in "$BREW_PATH/share" /usr/share; do
+            [[ -r $cand/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && \
+                zsh_autocomplete=$cand/zsh-autocomplete/zsh-autocomplete.plugin.zsh && break
+        done
+        # Conflicts with zsh-autocomplete; use only as fallback
+        if [[ -z $zsh_autocomplete ]]; then
+            [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+                source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        fi
         ;;
 esac
 
@@ -57,10 +65,14 @@ esac
 # Completion
 # ======================
 
-autoload -Uz compinit
-compinit -C -d "$ZSH_COMPDUMP"
-
-zstyle ':completion:*' menu select
+if [[ -n "$zsh_autocomplete" ]]; then
+    # zsh-autocomplete calls compinit itself; a prior manual call breaks its menu
+    source "$zsh_autocomplete"
+else
+    autoload -Uz compinit
+    compinit -C -d "$ZSH_COMPDUMP"
+    zstyle ':completion:*' menu select
+fi
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # initialize zoxide
