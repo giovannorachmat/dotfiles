@@ -98,3 +98,9 @@ alias rm-chrome="rm -f $XDG_CONFIG_HOME/google-chrome/Singleton*"
 # activate venv
 alias pyva="source .venv/bin/activate"
 alias pyvd="deactivate"
+
+# AI
+alias oc="opencode"
+
+# Topgrade
+alias tg="topgrade"
