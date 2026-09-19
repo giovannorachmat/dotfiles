@@ -106,5 +106,6 @@ fi
 source "$ZDOTDIR/fzf.zsh"
 source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/starship.zsh"
+source "$ZDOTDIR/herdr.zsh"
 
 ff
