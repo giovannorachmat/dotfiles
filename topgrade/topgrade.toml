@@ -31,9 +31,11 @@ paths = ["~/.config/topgrade/local.toml"]
 
 disable = [
   "antigravity",
+  "antigravity_cli",
   "bun",
   "bun_packages",
   "claude_code",
+  "hermes_agent",
   # "claude_code_plugins",
   "colima",
   "containers",
@@ -50,6 +52,7 @@ disable = [
   "vim",
   "vscode",
   "vscodium",
+  "yazi",
 ]
 
 # Run these steps before all others
