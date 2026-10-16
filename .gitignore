@@ -181,3 +181,6 @@ nvim-lite/nvim-pack-lock.json
 opencode/bin/
 
 .commandcode/
+
+# kitty
+kitty/current-theme.conf
