@@ -55,7 +55,7 @@ disable = [
   "skills",
   "tldr",
   "tmux",
-  "uv"
+  "uv",
   "vim",
   "vscode",
   "vscodium",
