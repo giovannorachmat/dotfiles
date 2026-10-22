@@ -78,6 +78,7 @@ alias grep='rg --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'
 
+alias dnff="dnf --quiet list --available | cut -d ' ' -f 1 | grep '\.' | fzf --multi --preview 'dnf info {1}' --preview-window=right:65%:wrap:border-left --border=rounded --algo=v1 | xargs -ro sudo dnf install"
 alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S"
 alias aptf="apt list | fzf --multi --preview 'apt show {1}' --preview-window=down:75% | xargs -ro sudo apt install"
 
@@ -99,8 +100,25 @@ alias rm-chrome="rm -f $XDG_CONFIG_HOME/google-chrome/Singleton*"
 alias pyva="source .venv/bin/activate"
 alias pyvd="deactivate"
 
-# AI
-alias oc="opencode"
+# alias oc='set -a; . ~/.config/opencode/.env; set +a; opencode'
+
+oc() {
+  local env_file="$HOME/.config/opencode/.env"
+
+  if [[ ! -r "$env_file" ]]; then
+    echo "Cannot read $env_file" >&2
+    return 1
+  fi
+
+  set -a
+  source "$env_file" || {
+    set +a
+    return 1
+  }
+  set +a
+
+  command opencode "$@"
+}
 
 # Topgrade
 alias tg="topgrade"
